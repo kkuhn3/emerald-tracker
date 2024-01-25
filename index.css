@@ -1,0 +1,223 @@
+:root {
+	--ncolor: #ff8080;
+	--pcolor: #8080ff;
+	--lcolor: #80ff80;
+	--ccolor: #808080;
+	--necolor: #ff80ff;
+	--pecolor: #c0c0ff;
+	--lecolor: #80ffff;
+}
+
+html {
+	background-color: #d3dfeb;
+}
+
+body {
+	margin: 4px;
+}
+
+/*left side, settings items and specifics*/
+#leftCol {
+	float: left;
+	width: 21%;
+}
+
+.setting {
+	width: 2.2222vw;
+	height: 2.2222vw;
+	background-size: contain;
+	float: left;
+	cursor: pointer;
+	background-color: #293541;
+}
+
+.notImageImage {
+	color: silver;
+	font-size: 1.4vw;
+	text-align: center;
+	line-height: 2.2222vw;
+	box-shadow: 0 1px 0 0 #d3dfeb inset, 1px 0 0 0 #d3dfeb inset, -1px 0 0 0 #d3dfeb inset, 0 -1px 0 0 #d3dfeb inset;
+}
+
+#items {
+	float: left;
+}
+.item {
+	width: 2.2222vw;
+	height: 2.2222vw;
+	background-size: contain;
+	float: left;
+	filter: grayscale(100%);
+	cursor: pointer;
+	background-color: #293541;
+}
+.largerItem {
+	width: 2.5vw;
+	height: 2.5vw;
+}
+.itemchecked {
+	filter: grayscale(0%);
+}
+
+#itemHoverDesc {
+	color: silver;
+	padding: .5vw;
+	width: 19vw;
+	float: left;
+	overflow-x: hidden;
+	user-select: none;
+	background-color: #293541;
+	font-family: serif;
+}
+
+#groupBreakDown {
+	width: 20vw;
+	float: left;
+}
+
+/*right side, map and locations*/
+#map {
+	position: relative;
+	float: right;
+	width: 79%;
+}
+
+#hoenn {
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.location {
+	width: 1vw;
+	height: 1vw;
+	background-color: var(--ncolor);
+	position: absolute;
+	margin-top: -.5vw;
+	margin-left: -.5vw;
+	cursor: pointer;
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset;
+}
+.location:hover {
+	z-index: 3000;
+	box-shadow: 0 .05vw 0 0 yellow inset, .05vw 0 0 0 yellow inset, -.05vw 0 0 0 yellow inset, 0 -.05vw 0 0 yellow inset;
+}
+.locationevent {
+	background-color: var(--necolor);
+}
+.locationpossible {
+	background-color: var(--pcolor);
+}
+.locationlogical {
+	background-color: var(--lcolor);
+}
+.locationeventpossible {
+	background-color: var(--pecolor);
+}
+.locationeventlogical {
+	background-color: var(--lecolor);
+}
+.locationchecked {
+	background-color: var(--ccolor);
+}
+
+.group {
+	width: 1.5vw;
+	height: 1.5vw;
+	background-color: var(--ncolor);
+	position: absolute;
+	margin-top: -.75vw;
+	margin-left: -.75vw;
+	cursor: pointer;
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset;
+}
+.group:hover {
+	z-index: 3000;
+	box-shadow: 0 .05vw 0 0 yellow inset, .05vw 0 0 0 yellow inset, -.05vw 0 0 0 yellow inset, 0 -.05vw 0 0 yellow inset;
+}
+.groupevent {
+	background-color: var(--necolor);
+}
+.grouppossible {
+	background-color: var(--pcolor);
+}
+.grouplogical {
+	background-color: var(--lcolor);
+}
+.groupeventpossible {
+	background-color: var(--pecolor);
+}
+.groupeventlogical {
+	background-color: var(--lecolor);
+}
+.groupchecked {
+	background-color: var(--ccolor);
+}
+
+.sub {
+	color: var(--ncolor);
+	font-size: max(12px, .75vw);
+	line-height: max(20px, 1.5vw);
+	cursor: pointer;
+	font-family: sans-serif;
+	overflow-x: hidden;
+	user-select: none;
+	background-color: #293541;
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .1vw 0 0 var(--ncolor) inset, .1vw 0 0 0 var(--ncolor) inset, -.1vw 0 0 0 var(--ncolor) inset, 0 -.1vw 0 0 var(--ncolor) inset;
+}
+.sub:hover {
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .1vw 0 0 yellow inset, .1vw 0 0 0 yellow inset, -.1vw 0 0 0 yellow inset, 0 -.1vw 0 0 yellow inset;
+}
+.subevent {
+	color: var(--necolor);
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .1vw 0 0 var(--necolor) inset, .1vw 0 0 0 var(--necolor) inset, -.1vw 0 0 0 var(--necolor) inset, 0 -.1vw 0 0 var(--necolor) inset;
+}
+.subpossible {
+	color: var(--pcolor);
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .1vw 0 0 var(--pcolor) inset, .1vw 0 0 0 var(--pcolor) inset, -.1vw 0 0 0 var(--pcolor) inset, 0 -.1vw 0 0 var(--pcolor) inset;
+}
+.sublogical {
+	color: var(--lcolor);
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .1vw 0 0 var(--lcolor) inset, .1vw 0 0 0 var(--lcolor) inset, -.1vw 0 0 0 var(--lcolor) inset, 0 -.1vw 0 0 var(--lcolor) inset;
+}
+.subeventpossible {
+	color: var(--pecolor);
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .1vw 0 0 var(--pecolor) inset, .1vw 0 0 0 var(--pecolor) inset, -.1vw 0 0 0 var(--pecolor) inset, 0 -.1vw 0 0 var(--pecolor) inset;
+}
+.subeventlogical {
+	color: var(--lecolor);
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .1vw 0 0 var(--lecolor) inset, .1vw 0 0 0 var(--lecolor) inset, -.1vw 0 0 0 var(--lecolor) inset, 0 -.1vw 0 0 var(--lecolor) inset;
+}
+.subchecked {
+	color: var(--ccolor);
+	text-decoration: line-through;
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .1vw 0 0 var(--ccolor) inset, .1vw 0 0 0 var(--ccolor) inset, -.1vw 0 0 0 var(--ccolor) inset, 0 -.1vw 0 0 var(--ccolor) inset;
+}
+
+#idViewer {
+	position: absolute;
+	color: silver;
+	display: none;
+	padding: 8px;
+	font-family: serif;
+	user-select: none;
+	background-color: #293541;
+}
+
+.hidden {
+	display: none;
+}
+.hiddenhidden {
+	display: none;
+}
+.victoryhidden {
+	display: none;
+}

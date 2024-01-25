@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+	<title>Emerald Tracker</title>
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="cities.css">
+	<link rel="stylesheet" href="dungeons.css">
+	<link rel="stylesheet" href="items.css">
+	<link rel="stylesheet" href="routes.css">
+	<script src="index.js" type="text/javascript"></script>
+	<script src="logic.js" type="text/javascript"></script>
+	<script src="sync.js" type="text/javascript"></script>
+	<body>
+		<div id="leftCol">
+			<div id="settings">
+				<img class="setting _1" id="HIDDEN_ITEMS" onclick="settingHiddenItem()">
+				<img class="setting _1" id="NORMAN_REQ" onclick="settingNormanReq()">
+				<img class="setting _4" id="NORMAN_COUNT" onclick="settingNormanCount()">
+				<img class="setting _1" id="E4_REQ" onclick="settingE4Req()">
+				<img class="setting _7" id="E4_COUNT" onclick="settingE4Count()">
+				<img class="setting _1" id="VICTORY_EVENT" onclick="settingVictory()">
+				<div class="setting notImageImage" id="CHECK_CHECKED">0</div>
+				<div class="setting notImageImage" id="CHECK_LOGICAL">50</div>
+				<div class="setting notImageImage" id="CHECK_TOTAL">300</div>
+			</div>
+			<div id="items">
+				<img class="item largerItem" id="ITEM_BADGE_1">
+				<img class="item largerItem" id="ITEM_BADGE_2">
+				<img class="item largerItem" id="ITEM_BADGE_3">
+				<img class="item largerItem" id="ITEM_BADGE_4">
+				<img class="item largerItem" id="ITEM_BADGE_5">
+				<img class="item largerItem" id="ITEM_BADGE_6">
+				<img class="item largerItem" id="ITEM_BADGE_7">
+				<img class="item largerItem" id="ITEM_BADGE_8">
+				<img class="item largerItem" id="ITEM_HM01_CUT">
+				<img class="item largerItem" id="ITEM_HM05_FLASH">
+				<img class="item largerItem" id="ITEM_HM06_ROCK_SMASH">
+				<img class="item largerItem" id="ITEM_HM04_STRENGTH">
+				<img class="item largerItem" id="ITEM_HM03_SURF">
+				<img class="item largerItem" id="ITEM_HM02_FLY">
+				<img class="item largerItem" id="ITEM_HM08_DIVE">
+				<img class="item largerItem" id="ITEM_HM07_WATERFALL">
+				<img class="item" id="ITEM_DEVON_GOODS">
+				<img class="item" id="ITEM_LETTER">
+				<img class="item" id="ITEM_METEORITE">
+				<img class="item" id="ITEM_GO_GOGGLES">
+				<img class="item" id="ITEM_DEVON_SCOPE">
+				<img class="item" id="ITEM_MAGMA_EMBLEM">
+				<img class="item" id="ITEM_ITEMFINDER">
+				<img class="item" id="ITEM_ACRO_BIKE">
+				<img class="item" id="ITEM_MACH_BIKE">
+				<img class="item" id="ITEM_ROOM_1_KEY">
+				<img class="item" id="ITEM_ROOM_2_KEY">
+				<img class="item" id="ITEM_ROOM_4_KEY">
+				<img class="item" id="ITEM_ROOM_6_KEY">
+				<img class="item" id="ITEM_STORAGE_KEY">
+				<img class="item" id="ITEM_SCANNER">
+				<img class="item" id="ITEM_BASEMENT_KEY">
+				<img class="item" id="ITEM_POKEBLOCK_CASE">
+				<img class="item" id="ITEM_SS_TICKET">
+			</div>
+			<div id="itemHoverDesc">
+				&nbsp
+			</div>
+			<div id="groupBreakDown">
+
+			</div>
+		</div>
+
+		<div id="map">
+			<img id="hoenn" style="background-image:url(./images/hoenn-compressed.png)" src="./images/hoenn.png">
+			<!---------------------------------------------------------------------------->
+			<!--Cities-->
+			<!---------------------------------------------------------------------------->
+			<!--Littleroot-->
+			<div class="group" id="LITTLEROOT_TOWN_BRENDANS_HOUSE">
+				<div class="sub" id="NPC_GIFT_RECEIVED_AMULET_COIN"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_SS_TICKET"></div>
+			</div>
+			<!--Oldale-->
+			<div class="location" id="NPC_GIFT_RECEIVED_POTION_OLDALE"></div>
+			<!--Petalburg-->
+			<div class="location" id="ITEM_PETALBURG_CITY_MAX_REVIVE"></div>
+			<div class="location" id="ITEM_PETALBURG_CITY_ETHER"></div>
+			<div class="location" id="HIDDEN_ITEM_PETALBURG_CITY_RARE_CANDY"></div>
+			<div class="group" id="PETALBURG_GYM">
+				<div class="sub" id="EVENT_DEFEAT_NORMAN"></div>
+				<div class="sub" id="BADGE_5"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM42"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_HM03"></div>
+			</div>
+			<!--Rustboro-->
+			<div class="location" id="ITEM_RUSTBORO_CITY_X_DEFEND"></div>
+			<div class="group" id="RUSTBORO_GYM">
+				<div class="sub" id="EVENT_DEFEAT_ROXANNE"></div>
+				<div class="sub" id="BADGE_1"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM39"></div>
+			</div>
+			<div class="group" id="RUSTBORO_CITY_DEVON_CORP">
+				<div class="sub" id="EVENT_RETURN_DEVON_GOODS"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_GREAT_BALL_RUSTBORO_CITY"></div>
+				<div class="sub" id="EVENT_TALK_TO_MR_STONE"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_LETTER"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_EXP_SHARE"></div>
+			</div>
+			<div class="location" id="NPC_GIFT_RECEIVED_QUICK_CLAW"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_PREMIER_BALL_RUSTBORO"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_HM01"></div>
+			<!--Dewford-->
+			<div class="location" id="NPC_GIFT_RECEIVED_OLD_ROD"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_TM36"></div>
+			<div class="group" id="DEWFORD_GYM">
+				<div class="sub" id="EVENT_DEFEAT_BRAWLY"></div>
+				<div class="sub" id="BADGE_2"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM08"></div>
+			</div>
+			<div class="location" id="NPC_GIFT_RECEIVED_SILK_SCARF"></div>
+			<!--Slateport-->
+			<div class="location" id="NPC_GIFT_RECEIVED_POWDER_JAR"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_TM41"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_SOOTHE_BELL"></div>
+			<div class="group" id="SLATEPORT_CITY_OCEANIC_MUSEUM">
+				<div class="sub" id="EVENT_RESCUE_CAPT_STERN"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM46"></div>
+			</div>
+			<div class="group" id="SLATEPORT_CITY_HARBOR">
+				<!--<div class="sub" id="EVENT_AQUA_STEALS_SUBMARINE"></div>-->
+				<div class="sub" id="NPC_GIFT_RECEIVED_DEEP_SEA_TOOTH"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_DEEP_SEA_SCALE"></div>
+			</div>
+			<!--<div class="location" id="EVENT_TALK_TO_DOCK"></div>-->
+			<!--<div class="location" id="EVENT_BUY_HARBOR_MAIL"></div>-->
+			<!--Mauville-->
+			<div class="group" id="MAUVILLE_CITY_WATTSON">
+				<div class="sub" id="NPC_GIFT_GOT_BASEMENT_KEY_FROM_WATTSON"></div>
+				<div class="sub" id="NPC_GIFT_GOT_TM24_FROM_WATTSON"></div>
+			</div>
+			<div class="location" id="ITEM_MAUVILLE_CITY_X_SPEED"></div>
+			<div class="group" id="MAUVILLE_GYM">
+				<div class="sub" id="EVENT_DEFEAT_WATTSON"></div>
+				<div class="sub" id="BADGE_3"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM34"></div>
+			</div>
+			<div class="group" id="MAUVILLE_CITY_BIKE_SHOP">
+				<div class="sub" id="NPC_GIFT_RECEIVED_ACRO_BIKE"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_MACH_BIKE"></div>
+			</div>
+			<div class="location" id="NPC_GIFT_RECEIVED_HM06"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_COIN_CASE"></div>
+			<!--Verdanturf-->
+			<div class="location" id="NPC_GIFT_RECEIVED_TM45"></div>
+			<!--Fallarbor-->
+			<div class="location" id="HIDDEN_ITEM_FALLARBOR_TOWN_NUGGET"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_TM27"></div>
+			<!--Lavaridge-->
+			<div class="location" id="HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_CHARCOAL"></div>
+			<div class="group" id="LAVARIDGE_GYM">
+				<div class="sub" id="EVENT_DEFEAT_FLANNERY"></div>
+				<div class="sub" id="BADGE_4"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM50"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_GO_GOGGLES"></div>
+			</div>
+			<!--Fortree-->
+			<div class="location" id="NPC_GIFT_RECEIVED_TM10"></div>
+			<!--<div class="group" id="FORTREE_CITY_WINGULL_HOUSE">
+				<div class="sub" id="EVENT_WINGULL_QUEST_1"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_MENTAL_HERB"></div>
+			</div>-->
+			<div class="location" id="NPC_GIFT_RECEIVED_MENTAL_HERB"></div>
+			<div class="group" id="FORTREE_GYM">
+				<div class="sub" id="EVENT_DEFEAT_WINONA"></div>
+				<div class="sub" id="BADGE_6"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM40"></div>
+			</div>
+			<!--Lilycove-->
+			<div class="location" id="ITEM_LILYCOVE_CITY_MAX_REPEL"></div>
+			<div class="location" id="HIDDEN_ITEM_LILYCOVE_CITY_HEART_SCALE"></div>
+			<div class="location" id="HIDDEN_ITEM_LILYCOVE_CITY_PP_UP"></div>
+			<div class="location" id="HIDDEN_ITEM_LILYCOVE_CITY_POKE_BALL"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_POKEBLOCK_CASE"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_TM44"></div>
+			<div class="group" id="SS_TIDAL">
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM49"></div>
+				<div class="sub" id="HIDDEN_ITEM_SS_TIDAL_LOWER_DECK_LEFTOVERS"></div>
+			</div>
+			<!--Mossdeep-->
+			<div class="location" id="ITEM_MOSSDEEP_CITY_NET_BALL"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_KINGS_ROCK"></div>
+			<div class="group" id="MOSSDEEP_GYM">
+				<div class="sub" id="EVENT_DEFEAT_TATE_AND_LIZA"></div>
+				<div class="sub" id="BADGE_7"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM04"></div>
+			</div>
+			<!--<div class="group" id="MOSSDEEP_CITY_SPACE_CENTER">
+				<div class="sub" id="NPC_GIFT_RECEIVED_SUN_STONE_MOSSDEEP"></div>
+				<div class="sub" id="EVENT_DEFEAT_MAXIE_AT_SPACE_STATION"></div>
+			</div>-->
+			<div class="location" id="NPC_GIFT_RECEIVED_SUN_STONE_MOSSDEEP"></div>
+			<div class="group" id="MOSSDEEP_CITY_STEVEN">
+				<div class="sub" id="EVENT_STEVEN_GIVES_DIVE"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_HM08"></div>
+			</div>
+			<div class="location" id="NPC_GIFT_RECEIVED_SUPER_ROD"></div>
+			<!--<div class="location" id="EVENT_WINGULL_QUEST_2"></div>-->
+			<!--Sootopolis-->
+			<div class="group" id="SOOTOPOLIS_CITY">
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM31"></div>
+				<!--<div class="sub" id="EVENT_WALLACE_GOES_TO_SKY_PILLAR"></div>-->
+				<div class="sub" id="NPC_GIFT_RECEIVED_HM07"></div>
+				<div class="sub" id="EVENT_DEFEAT_JUAN"></div>
+				<div class="sub" id="BADGE_8"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM03"></div>
+			</div>
+			<!--Pacifidlog-->
+			<div class="group" id="PACIFIDLOG_TOWN_HAPPINESS">
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM27_2"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM21"></div>
+			</div>
+			<div class="location" id="EVENT_DEFEAT_CHAMPION"></div>
+
+			<!---------------------------------------------------------------------------->
+			<!--Dungeons-->
+			<!---------------------------------------------------------------------------->
+			<!--Petalburg Woods-->
+			<div class="group" id="PETALBURG_WOODS">
+				<div class="sub" id="HIDDEN_ITEM_PETALBURG_WOODS_POTION"></div>
+				<div class="sub" id="ITEM_PETALBURG_WOODS_PARALYZE_HEAL"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_GREAT_BALL_PETALBURG_WOODS"></div>
+				<div class="sub" id="HIDDEN_ITEM_PETALBURG_WOODS_POKE_BALL"></div>
+				<div class="sub" id="ITEM_PETALBURG_WOODS_ETHER"></div>
+				<div class="sub" id="HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_1"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_MIRACLE_SEED"></div>
+				<div class="sub" id="ITEM_PETALBURG_WOODS_GREAT_BALL"></div>
+				<div class="sub" id="HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_2"></div>
+				<div class="sub" id="ITEM_PETALBURG_WOODS_X_ATTACK"></div>
+			</div>
+			<!--Rusturf Tunnel-->
+			<div class="group" id="RUSTURF_TUNNEL">
+				<div class="sub" id="ITEM_RUSTURF_TUNNEL_POKE_BALL"></div>
+				<div class="sub" id="EVENT_RECOVER_DEVON_GOODS"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_DEVON_GOODS_RUSTURF_TUNNEL"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_HM04"></div>
+				<div class="sub" id="ITEM_RUSTURF_TUNNEL_MAX_ETHER"></div>
+			</div>
+			<!--Granite Cave-->
+			<div class="group" id="GRANITE_CAVE">
+				<div class="sub" id="NPC_GIFT_RECEIVED_HM05"></div>
+				<div class="sub" id="ITEM_GRANITE_CAVE_1F_ESCAPE_ROPE"></div>
+				<div class="sub" id="ITEM_GRANITE_CAVE_B1F_POKE_BALL"></div>
+				<div class="sub" id="HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_2"></div>
+				<div class="sub" id="EVENT_DELIVER_LETTER"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM47"></div>
+				<div class="sub" id="ITEM_GRANITE_CAVE_B2F_REPEL"></div>
+				<div class="sub" id="ITEM_GRANITE_CAVE_B2F_RARE_CANDY"></div>
+				<div class="sub" id="HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_1"></div>
+			</div>
+			<!--Fiery Path-->
+			<div class="group" id="FIERY_PATH">
+				<div class="sub" id="ITEM_FIERY_PATH_FIRE_STONE"></div>
+				<div class="sub" id="ITEM_FIERY_PATH_TM06"></div>
+			</div>
+			<!--Magma Hideout-->
+			<div class="group" id="MAGMA_HIDEOUT">
+				<div class="sub" id="ITEM_MAGMA_HIDEOUT_2F_2R_FULL_RESTORE"></div>
+				<div class="sub" id="ITEM_MAGMA_HIDEOUT_2F_2R_MAX_ELIXIR"></div>
+				<div class="sub" id="ITEM_MAGMA_HIDEOUT_1F_RARE_CANDY"></div>
+				<div class="sub" id="ITEM_MAGMA_HIDEOUT_3F_2R_PP_MAX"></div>
+				<div class="sub" id="ITEM_MAGMA_HIDEOUT_3F_1R_NUGGET"></div>
+				<div class="sub" id="ITEM_MAGMA_HIDEOUT_4F_MAX_REVIVE"></div>
+				<div class="sub" id="EVENT_RELEASE_GROUDON"></div>
+				<div class="sub" id="ITEM_MAGMA_HIDEOUT_3F_3R_ECAPE_ROPE"></div>
+			</div>
+			<!--Meteor Falls-->
+			<div class="group" id="METEOR_FALLS">
+				<div class="sub" id="ITEM_METEOR_FALLS_1F_1R_FULL_HEAL"></div>
+				<div class="sub" id="EVENT_MAGMA_STEALS_METEORITE"></div>
+				<div class="sub" id="ITEM_METEOR_FALLS_1F_1R_MOON_STONE"></div>
+				<div class="sub" id="ITEM_METEOR_FALLS_1F_1R_PP_UP"></div>
+				<div class="sub" id="ITEM_METEOR_FALLS_B1F_2R_TM02"></div>
+				<div class="sub" id="ITEM_METEOR_FALLS_1F_1R_TM23"></div>
+				<div class="sub" id="EVENT_DEFEAT_STEVEN"></div>
+			</div>
+			<!--Abandoned Ship-->
+			<div class="group" id="ABANDONED_SHIP">
+				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_1F_HARBOR_MAIL"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_2_1F_REVIVE"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_2_B1F_DIVE_BALL"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_B1F_ESCAPE_ROPE"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_B1F_TM13"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_CAPTAINS_OFFICE_STORAGE_KEY"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_1_TM18"></div>
+				<div class="sub" id="HIDDEN_ITEM_ABANDONED_SHIP_RM_4_KEY"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_4_SCANNER"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_3_WATER_STONE"></div>
+				<div class="sub" id="HIDDEN_ITEM_ABANDONED_SHIP_RM_1_KEY"></div>
+				<div class="sub" id="HIDDEN_ITEM_ABANDONED_SHIP_RM_6_KEY"></div>
+				<div class="sub" id="HIDDEN_ITEM_ABANDONED_SHIP_RM_2_KEY"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL"></div>
+			</div>
+			<!--New Mauville-->
+			<div class="group" id="NEW_MAUVILLE">
+				<div class="sub" id="ITEM_NEW_MAUVILLE_ESCAPE_ROPE"></div>
+				<div class="sub" id="ITEM_NEW_MAUVILLE_PARALYZE_HEAL"></div>
+				<div class="sub" id="ITEM_NEW_MAUVILLE_FULL_HEAL"></div>
+				<div class="sub" id="ITEM_NEW_MAUVILLE_THUNDER_STONE"></div>
+				<div class="sub" id="ITEM_NEW_MAUVILLE_ULTRA_BALL"></div>
+				<div class="sub" id="EVENT_TURN_OFF_GENERATOR"></div>
+			</div>
+			<!--Scorched Slab-->
+			<div class="location" id="ITEM_SCORCHED_SLAB_TM11"></div>
+			<!--Mt Pyre-->
+			<div class="group" id="MT_PYRE">
+				<div class="sub" id="NPC_GIFT_RECEIVED_CLEANSE_TAG"></div>
+				<div class="sub" id="ITEM_MT_PYRE_2F_ULTRA_BALL"></div>
+				<div class="sub" id="ITEM_MT_PYRE_3F_SUPER_REPEL"></div>
+				<div class="sub" id="ITEM_MT_PYRE_4F_SEA_INCENSE"></div>
+				<div class="sub" id="ITEM_MT_PYRE_5F_LAX_INCENSE"></div>
+				<div class="sub" id="ITEM_MT_PYRE_6F_TM30"></div>
+				<div class="sub" id="ITEM_MT_PYRE_EXTERIOR_TM48"></div>
+				<div class="sub" id="ITEM_MT_PYRE_EXTERIOR_MAX_POTION"></div>
+				<div class="sub" id="HIDDEN_ITEM_MT_PYRE_EXTERIOR_MAX_ETHER"></div>
+				<div class="sub" id="HIDDEN_ITEM_MT_PYRE_EXTERIOR_ULTRA_BALL"></div>
+				<div class="sub" id="HIDDEN_ITEM_MT_PYRE_SUMMIT_ZINC"></div>
+				<div class="sub" id="HIDDEN_ITEM_MT_PYRE_SUMMIT_RARE_CANDY"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_MAGMA_EMBLEM"></div>
+			</div>
+			<!--Aqua Hideout-->
+			<div class="group" id="AQUA_HIDEOUT">
+				<div class="sub" id="ITEM_AQUA_HIDEOUT_B2F_NEST_BALL"></div>
+				<div class="sub" id="ITEM_AQUA_HIDEOUT_B1F_NUGGET"></div>
+				<div class="sub" id="ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL"></div>
+				<div class="sub" id="ITEM_AQUA_HIDEOUT_B1F_MAX_ELIXIR"></div>
+				<div class="sub" id="EVENT_CLEAR_AQUA_HIDEOUT"></div>
+			</div>
+			<!--Shoal Cave-->
+			<div class="group" id="SHOAL_CAVE">
+				<div class="sub" id="ITEM_SHOAL_CAVE_INNER_ROOM_RARE_CANDY"></div>
+				<div class="sub" id="ITEM_SHOAL_CAVE_ENTRANCE_BIG_PEARL"></div>
+				<div class="sub" id="ITEM_SHOAL_CAVE_STAIRS_ROOM_ICE_HEAL"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_FOCUS_BAND"></div>
+				<div class="sub" id="ITEM_SHOAL_CAVE_ICE_ROOM_NEVER_MELT_ICE"></div>
+				<div class="sub" id="ITEM_SHOAL_CAVE_ICE_ROOM_TM07"></div>
+			</div>
+			<!--Seafloor Cavern-->
+			<div class="group" id="SEAFLOOR_CAVERN">
+				<div class="sub" id="ITEM_SEAFLOOR_CAVERN_ROOM_9_TM26"></div>
+				<div class="sub" id="EVENT_RELEASE_KYOGRE"></div>
+			</div>
+			<!--Sky Pillar-->
+			<!--<div class="location" id="EVENT_WAKE_RAYQUAZA"></div>-->
+			<!--Victory Road-->
+			<div class="group" id="VICTORY_ROAD">
+				<div class="sub" id="ITEM_VICTORY_ROAD_1F_MAX_ELIXIR"></div>
+				<div class="sub" id="ITEM_VICTORY_ROAD_1F_PP_UP"></div>
+				<div class="sub" id="HIDDEN_ITEM_VICTORY_ROAD_1F_ULTRA_BALL"></div>
+				<div class="sub" id="ITEM_VICTORY_ROAD_B1F_TM29"></div>
+				<div class="sub" id="ITEM_VICTORY_ROAD_B1F_FULL_RESTORE"></div>
+				<div class="sub" id="HIDDEN_ITEM_VICTORY_ROAD_B2F_MAX_REPEL"></div>
+				<div class="sub" id="ITEM_VICTORY_ROAD_B2F_FULL_HEAL"></div>
+				<div class="sub" id="HIDDEN_ITEM_VICTORY_ROAD_B2F_ELIXIR"></div>
+			</div>
+			<!---------------------------------------------------------------------------->
+			<!--Routes-->
+			<!---------------------------------------------------------------------------->
+			<!--101-->
+			<!--102-->
+			<div class="location" id="ITEM_ROUTE_102_POTION"></div>
+			<!--103-->
+			<div class="location" id="ITEM_ROUTE_103_GUARD_SPEC"></div>
+			<div class="location" id="ITEM_ROUTE_103_PP_UP"></div>
+			<!--104-->
+			<div class="location" id="HIDDEN_ITEM_ROUTE_104_POTION"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_104_HEART_SCALE"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_104_ANTIDOTE"></div>
+			<div class="location" id="ITEM_ROUTE_104_POKE_BALL"></div>
+			<div class="group" id="FLOWER_SHOP">
+				<div class="sub" id="NPC_GIFT_RECEIVED_TM09"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_WAILMER_PAIL"></div>
+				<!--<div class="sub" id="EVENT_MEET_FLOWER_SHOP_OWNER"></div>-->
+				<div class="sub" id="ITEM_ROUTE_104_POTION"></div>
+				<div class="sub" id="HIDDEN_ITEM_ROUTE_104_SUPER_POTION"></div>
+				<div class="sub" id="HIDDEN_ITEM_ROUTE_104_POKE_BALL"></div>
+				<div class="sub" id="NPC_GIFT_RECEIVED_WHITE_HERB"></div>
+			</div>
+			<div class="location" id="ITEM_ROUTE_104_X_ACCURACY"></div>
+			<div class="location" id="ITEM_ROUTE_104_PP_UP"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_CHESTO_BERRY_ROUTE_104"></div>
+			<!--105-->
+			<div class="location" id="ITEM_ROUTE_105_IRON"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_105_HEART_SCALE"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_105_BIG_PEARL"></div>
+			<!--106-->
+			<div class="location" id="ITEM_ROUTE_106_PROTEIN"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_106_POKE_BALL"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_106_STARDUST"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_106_HEART_SCALE"></div>
+			<!--107-->
+			<!--108-->
+			<div class="location" id="ITEM_ROUTE_108_STAR_PIECE"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_108_RARE_CANDY"></div>
+			<!--109-->
+			<div class="location" id="ITEM_ROUTE_109_PP_UP"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_109_HEART_SCALE_3"></div>
+			<div class="location" id="ITEM_ROUTE_109_POTION"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_109_REVIVE"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_109_HEART_SCALE_1"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_109_GREAT_BALL"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_109_ETHER"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_109_HEART_SCALE_2"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_SOFT_SAND"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_6_SODA_POP"></div>
+			<!--110-->
+			<div class="location" id="ITEM_ROUTE_110_DIRE_HIT"></div>
+			<div class="location" id="ITEM_ROUTE_110_ELIXIR"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_110_REVIVE"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_110_GREAT_BALL"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_110_POKE_BALL"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_110_FULL_HEAL"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_ITEMFINDER"></div>
+			<div class="location" id="ITEM_ROUTE_110_RARE_CANDY"></div>
+			<!--111-->
+			<div class="location" id="ITEM_ROUTE_111_ELIXIR"></div>
+			<div class="location" id="ITEM_ROUTE_111_HP_UP"></div>
+			<div class="location" id="ITEM_ROUTE_111_TM37"></div>
+			<div class="location" id="ITEM_ROUTE_111_STARDUST"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_111_STARDUST"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_111_PROTEIN"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_111_RARE_CANDY"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_SECRET_POWER"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_MACHO_BRACE"></div>
+			<!--112-->
+			<div class="location" id="ITEM_ROUTE_112_NUGGET"></div>
+			<!--Mt Chimney-->
+			<div class="group" id="MT_CHIMNEY">
+				<div class="sub" id="NPC_GIFT_RECEIVED_METEORITE"></div>
+				<div class="sub" id="EVENT_RECOVER_METEORITE"></div>
+			</div>
+			<!--Jagged Pass-->
+			<div class="group" id="JAGGED_PASS">
+				<div class="sub" id="HIDDEN_ITEM_JAGGED_PASS_FULL_HEAL"></div>
+				<div class="sub" id="ITEM_JAGGED_PASS_BURN_HEAL"></div>
+				<div class="sub" id="HIDDEN_ITEM_JAGGED_PASS_GREAT_BALL"></div>
+			</div>
+			<!--113-->
+			<div class="location" id="ITEM_ROUTE_113_MAX_ETHER"></div>
+			<div class="location" id="ITEM_ROUTE_113_SUPER_REPEL"></div>
+			<div class="location" id="ITEM_ROUTE_113_HYPER_POTION"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_113_ETHER"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_113_TM32"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_113_NUGGET"></div>
+			<!--114-->
+			<div class="location" id="ITEM_ROUTE_114_PROTEIN"></div>
+			<div class="location" id="ITEM_ROUTE_114_ENERGY_POWDER"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_114_REVIVE"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_114_CARBOS"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_TM05"></div>
+			<div class="location" id="ITEM_ROUTE_114_RARE_CANDY"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_TM28"></div>
+			<!--115-->
+			<div class="location" id="ITEM_ROUTE_115_SUPER_POTION"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_115_HEART_SCALE"></div>
+			<div class="location" id="ITEM_ROUTE_115_PP_UP"></div>
+			<div class="location" id="ITEM_ROUTE_115_GREAT_BALL"></div>
+			<div class="location" id="ITEM_ROUTE_115_HEAL_POWDER"></div>
+			<div class="location" id="ITEM_ROUTE_115_TM01"></div>
+			<div class="location" id="ITEM_ROUTE_115_IRON"></div>
+			<!--116-->
+			<div class="location" id="ITEM_ROUTE_116_REPEL"></div>
+			<div class="location" id="ITEM_ROUTE_116_X_SPECIAL"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_REPEAT_BALL"></div>
+			<div class="location" id="ITEM_ROUTE_116_ETHER"></div>
+			<div class="location" id="ITEM_ROUTE_116_POTION"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_116_SUPER_POTION"></div>
+			<div class="location" id="ITEM_ROUTE_116_HP_UP"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES"></div>
+			<!--117-->
+			<div class="location" id="ITEM_ROUTE_117_GREAT_BALL"></div>
+			<div class="location" id="ITEM_ROUTE_117_REVIVE"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_117_REPEL"></div>
+			<!--118-->
+			<div class="location" id="HIDDEN_ITEM_ROUTE_118_HEART_SCALE"></div>
+			<div class="location" id="ITEM_ROUTE_118_HYPER_POTION"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_118_IRON"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_GOOD_ROD"></div>
+			<!--119-->
+			<div class="location" id="ITEM_ROUTE_119_SUPER_REPEL"></div>
+			<div class="location" id="ITEM_ROUTE_119_HYPER_POTION_1"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_119_FULL_HEAL"></div>
+			<div class="location" id="ITEM_ROUTE_119_ZINC"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_119_CALCIUM"></div>
+			<div class="location" id="ITEM_ROUTE_119_ELIXIR_1"></div>
+			<div class="location" id="ITEM_ROUTE_119_HYPER_POTION_2"></div>
+			<div class="location" id="ITEM_ROUTE_119_LEAF_STONE"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_119_ULTRA_BALL"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_119_MAX_ETHER"></div>
+			<div class="location" id="ITEM_ROUTE_119_ELIXIR_2"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_HM02"></div>
+			<div class="location" id="ITEM_ROUTE_119_RARE_CANDY"></div>
+			<div class="location" id="ITEM_ROUTE_119_NUGGET"></div>
+			<!--<div class="location" id="EVENT_DEFEAT_SHELLY"></div>-->
+			<!--120-->
+			<div class="location" id="HIDDEN_ITEM_ROUTE_120_RARE_CANDY_1"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_120_REVIVE"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_DEVON_SCOPE"></div>
+			<div class="location" id="ITEM_ROUTE_120_NEST_BALL"></div>
+			<div class="location" id="ITEM_ROUTE_120_NUGGET"></div>
+			<div class="location" id="ITEM_ROUTE_120_REVIVE"></div>
+			<div class="location" id="ITEM_ROUTE_120_HYPER_POTION"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_120_ZINC"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_120_RARE_CANDY_2"></div>
+			<div class="location" id="ITEM_ROUTE_120_FULL_HEAL"></div>
+			<!--121-->
+			<div class="location" id="HIDDEN_ITEM_ROUTE_121_HP_UP"></div>
+			<div class="location" id="ITEM_ROUTE_121_CARBOS"></div>
+			<div class="location" id="ITEM_ROUTE_121_REVIVE"></div>
+			<div class="location" id="ITEM_ROUTE_121_ZINC"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_121_NUGGET"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_121_FULL_HEAL"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_121_MAX_REVIVE"></div>
+			<!--Safari Zone-->
+			<div class="group" id="SAFARI_ZONE">
+				<div class="sub" id="ITEM_SAFARI_ZONE_NORTH_CALCIUM"></div>
+				<div class="sub" id="ITEM_SAFARI_ZONE_NORTH_WEST_TM22"></div>
+				<div class="sub" id="ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET"></div>
+				<div class="sub" id="HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY"></div>
+				<div class="sub" id="HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_ZINC"></div>
+				<div class="sub" id="ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE"></div>
+				<div class="sub" id="ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL"></div>
+				<div class="sub" id="HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP"></div>
+				<div class="sub" id="HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE"></div>
+			</div>
+			<!--123-->
+			<div class="location" id="ITEM_ROUTE_123_ULTRA_BALL"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_123_REVIVE"></div>
+			<div class="location" id="ITEM_ROUTE_123_CALCIUM"></div>
+			<div class="location" id="ITEM_ROUTE_123_ELIXIR"></div>
+			<div class="location" id="ITEM_ROUTE_123_PP_UP"></div>
+			<div class="location" id="ITEM_ROUTE_123_REVIVAL_HERB"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_123_SUPER_REPEL"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_123_HYPER_POTION"></div>
+			<div class="location" id="NPC_GIFT_RECEIVED_TM19"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_123_PP_UP"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_123_RARE_CANDY"></div>
+			<!--124-->
+			<div class="location" id="ITEM_ROUTE_124_RED_SHARD"></div>
+			<div class="location" id="ITEM_ROUTE_124_YELLOW_SHARD"></div>
+			<div class="location" id="ITEM_ROUTE_124_BLUE_SHARD"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_124_GREEN_SHARD"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_124_PEARL"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_124_BIG_PEARL"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_124_HEART_SCALE_1"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_124_CALCIUM"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_124_HEART_SCALE_2"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_124_CARBOS"></div>
+			<!--125-->
+			<div class="location" id="ITEM_ROUTE_125_BIG_PEARL"></div>
+			<!--126-->
+			<div class="location" id="ITEM_ROUTE_126_GREEN_SHARD"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_126_HEART_SCALE"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_126_ULTRA_BALL"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_126_STARDUST"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_126_BIG_PEARL"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_126_PEARL"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_126_IRON"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_126_YELLOW_SHARD"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_126_BLUE_SHARD"></div>
+			<!--127-->
+			<div class="location" id="ITEM_ROUTE_127_ZINC"></div>
+			<div class="location" id="ITEM_ROUTE_127_RARE_CANDY"></div>
+			<div class="location" id="ITEM_ROUTE_127_CARBOS"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_127_HEART_SCALE"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_127_STAR_PIECE"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_127_HP_UP"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_127_RED_SHARD"></div>
+			<!--128-->
+			<div class="location" id="HIDDEN_ITEM_ROUTE_128_HEART_SCALE_1"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2"></div>
+			<div class="location" id="HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_128_PROTEIN"></div>
+			<div class="location" id="HIDDEN_ITEM_UNDERWATER_128_PEARL"></div>
+			<!--129-->
+			<!--130-->
+			<!--131-->
+			<!--132-->
+			<div class="location" id="ITEM_ROUTE_132_RARE_CANDY"></div>
+			<div class="location" id="ITEM_ROUTE_132_PROTEIN"></div>
+			<!--133-->
+			<div class="location" id="ITEM_ROUTE_133_BIG_PEARL"></div>
+			<div class="location" id="ITEM_ROUTE_133_STAR_PIECE"></div>
+			<div class="location" id="ITEM_ROUTE_133_MAX_REVIVE"></div>
+			<!--134-->
+			<div class="location" id="ITEM_ROUTE_134_CARBOS"></div>
+			<div class="location" id="ITEM_ROUTE_134_STAR_PIECE"></div>
+			<!-- The on hover blurb -->
+			<div id="idViewer"></div>
+		</div>
+	</body>
+	<script>
+		addOnClick();
+		(async() => {await loadStaticContent();})()
+		parseSettings();
+		hideToMatchE4();
+		hideToMatchHidden();
+		updateLocations();
+		updateGroups();
+		countchecks();
+		connect();
+	</script>
+<html>
