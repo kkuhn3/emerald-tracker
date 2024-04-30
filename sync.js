@@ -5,6 +5,7 @@ let idToString = {};
 let idToItem = {};
 let idToLocation = {};
 let idToEvent = {};
+// https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/pokemon_emerald/data.py
 const offset = 3860000;
 async function loadStaticContent() {
 	const res1 = await fetch('./static/idToString.json', {
@@ -41,7 +42,7 @@ function connect() {
 			"version" : {
 				"major": 0,
 				"minor": 4,
-				"build": 4,
+				"build": 6,
 				"class": "Version"
 			},
 			"items_handling" : 7,

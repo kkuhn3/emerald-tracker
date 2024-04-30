@@ -25,28 +25,28 @@
 }
 
 /* HMs, Row 2 */
-#ITEM_HM01_CUT {
+#ITEM_HM_CUT {
 	background-image: url(./images/items/hm01.png);
 }
-#ITEM_HM02_FLY {
+#ITEM_HM_FLY {
 	background-image: url(./images/items/hm02.png);
 }
-#ITEM_HM03_SURF {
+#ITEM_HM_SURF {
 	background-image: url(./images/items/hm03.png);
 }
-#ITEM_HM04_STRENGTH {
+#ITEM_HM_STRENGTH {
 	background-image: url(./images/items/hm04.png);
 }
-#ITEM_HM05_FLASH {
+#ITEM_HM_FLASH {
 	background-image: url(./images/items/hm05.png);
 }
-#ITEM_HM06_ROCK_SMASH {
+#ITEM_HM_ROCK_SMASH {
 	background-image: url(./images/items/hm06.png);
 }
-#ITEM_HM07_WATERFALL {
+#ITEM_HM_WATERFALL {
 	background-image: url(./images/items/hm07.png);
 }
-#ITEM_HM08_DIVE {
+#ITEM_HM_DIVE {
 	background-image: url(./images/items/hm08.png);
 }
 
@@ -78,6 +78,9 @@
 #ITEM_MACH_BIKE {
 	background-image: url(./images/items/machbike.png);
 }
+#ITEM_SS_TICKET {
+	background-image: url(./images/items/ssticket.png);
+}
 
 /* Side Quests, Row 4 */
 #ITEM_ROOM_1_KEY {
@@ -104,9 +107,13 @@
 #ITEM_POKEBLOCK_CASE {
 	background-image: url(./images/items/pokeblockcase.png);
 }
-#ITEM_SS_TICKET {
-	background-image: url(./images/items/ssticket.png);
+#ITEM_WAILMER_PAIL {
+	background-image: url(./images/items/wailmerpail.png);
 }
+#ITEM_MYSTIC_TICKET {
+	background-image: url(./images/items/mysticticket.png);
+}
+
 
 /* Settings, not really items but similar enough */
 #HIDDEN_ITEMS._0 {

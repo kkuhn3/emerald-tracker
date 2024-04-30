@@ -1,4 +1,5 @@
 {
+	"//ID": "//https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/pokemon_emerald/data/extracted_data.json",
 	"226": "ITEM_BADGE_1",
 	"227": "ITEM_BADGE_2",
 	"228": "ITEM_BADGE_3",
@@ -7,14 +8,14 @@
 	"231": "ITEM_BADGE_6",
 	"232": "ITEM_BADGE_7",
 	"233": "ITEM_BADGE_8",
-	"339": "ITEM_HM01_CUT",
-	"343": "ITEM_HM05_FLASH",
-	"344": "ITEM_HM06_ROCK_SMASH",
-	"342": "ITEM_HM04_STRENGTH",
-	"341": "ITEM_HM03_SURF",
-	"340": "ITEM_HM02_FLY",
-	"346": "ITEM_HM08_DIVE",
-	"345": "ITEM_HM07_WATERFALL",
+	"339": "ITEM_HM_CUT",
+	"343": "ITEM_HM_FLASH",
+	"344": "ITEM_HM_ROCK_SMASH",
+	"342": "ITEM_HM_STRENGTH",
+	"341": "ITEM_HM_SURF",
+	"340": "ITEM_HM_FLY",
+	"346": "ITEM_HM_DIVE",
+	"345": "ITEM_HM_WATERFALL",
 	"269": "ITEM_DEVON_GOODS",
 	"274": "ITEM_LETTER",
 	"280": "ITEM_METEORITE",
@@ -32,5 +33,7 @@
 	"278": "ITEM_SCANNER",
 	"271": "ITEM_BASEMENT_KEY",
 	"273": "ITEM_POKEBLOCK_CASE",
-	"265": "ITEM_SS_TICKET"
+	"265": "ITEM_SS_TICKET",
+	"268": "ITEM_WAILMER_PAIL",
+	"370": "ITEM_MYSTIC_TICKET"
 }

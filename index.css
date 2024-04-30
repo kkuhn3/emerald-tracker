@@ -43,8 +43,8 @@ body {
 	float: left;
 }
 .item {
-	width: 2.2222vw;
-	height: 2.2222vw;
+	width: 2vw;
+	height: 2vw;
 	background-size: contain;
 	float: left;
 	filter: grayscale(100%);
@@ -97,6 +97,7 @@ body {
 	margin-left: -.5vw;
 	cursor: pointer;
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset;
+	z-index: 2;
 }
 .location:hover {
 	z-index: 3000;
@@ -210,6 +211,7 @@ body {
 	font-family: serif;
 	user-select: none;
 	background-color: #293541;
+	z-index: 2;
 }
 
 .hidden {

@@ -57,31 +57,31 @@ function has(item) {
 }
 
 function can_cut() {
-	return has("ITEM_HM01_CUT") && has("ITEM_BADGE_1");
+	return has("ITEM_HM_CUT") && has("ITEM_BADGE_1");
 }
 
 function can_flash() {
-	return has("ITEM_HM05_FLASH") && has("ITEM_BADGE_2");
+	return has("ITEM_HM_FLASH") && has("ITEM_BADGE_2");
 }
 
 function can_rocksmash() {
-	return has("ITEM_HM06_ROCK_SMASH") && has("ITEM_BADGE_3");
+	return has("ITEM_HM_ROCK_SMASH") && has("ITEM_BADGE_3");
 }
 
 function can_strength() {
-	return has("ITEM_HM04_STRENGTH") && has("ITEM_BADGE_4");
+	return has("ITEM_HM_STRENGTH") && has("ITEM_BADGE_4");
 }
 
 function can_surf() {
-	return has("ITEM_HM03_SURF") && has("ITEM_BADGE_5");
+	return has("ITEM_HM_SURF") && has("ITEM_BADGE_5");
 }
 
 function can_dive() {
-	return has("ITEM_HM08_DIVE") && has("ITEM_BADGE_7");
+	return has("ITEM_HM_DIVE") && has("ITEM_BADGE_7");
 }
 
 function can_waterfall() {
-	return has("ITEM_HM07_WATERFALL") && has("ITEM_BADGE_8");
+	return has("ITEM_HM_WATERFALL") && has("ITEM_BADGE_8");
 }
 
 function can_bike() {
@@ -181,12 +181,35 @@ function hidden_logic() {
 const locationLogic = {
 	//Cities
 	//Littleroot
+	"NPC_GIFT_RECEIVED_FIRST_POKEBALLS": function() {
+		return "logical";
+	},
 	"NPC_GIFT_RECEIVED_AMULET_COIN": function() {
 		if (has("ITEM_BADGE_5") && has("EVENT_RECOVER_DEVON_GOODS")) {
 			return "logical";
 		}
 	},
 	"NPC_GIFT_RECEIVED_SS_TICKET": function() {
+		if (has("EVENT_DEFEAT_CHAMPION")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_AURORA_TICKET": function() {
+		if (has("EVENT_DEFEAT_CHAMPION")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_EON_TICKET": function() {
+		if (has("EVENT_DEFEAT_CHAMPION")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_MYSTIC_TICKET": function() {
+		if (has("EVENT_DEFEAT_CHAMPION")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_OLD_SEA_MAP": function() {
 		if (has("EVENT_DEFEAT_CHAMPION")) {
 			return "logical";
 		}
@@ -221,12 +244,12 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM42": function() {
+	"NPC_GIFT_RECEIVED_TM_FACADE": function() {
 		if (norman_open()) {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_HM03": function() {
+	"NPC_GIFT_RECEIVED_HM_SURF": function() {
 		if (norman_open()) {
 			return "logical";
 		}
@@ -246,7 +269,7 @@ const locationLogic = {
 	"BADGE_1": function() {
 		return "logical";
 	},
-	"NPC_GIFT_RECEIVED_TM39": function() {
+	"NPC_GIFT_RECEIVED_TM_ROCK_TOMB": function() {
 		return "logical";
 	},
 	"NPC_GIFT_RECEIVED_QUICK_CLAW": function() {
@@ -265,7 +288,7 @@ const locationLogic = {
 	"NPC_GIFT_RECEIVED_PREMIER_BALL_RUSTBORO": function() {
 		return "logical";
 	},
-	"NPC_GIFT_RECEIVED_HM01": function() {
+	"NPC_GIFT_RECEIVED_HM_CUT": function() {
 		return "logical";
 	},
 	"EVENT_RETURN_DEVON_GOODS": function() {
@@ -284,7 +307,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM36": function() {
+	"NPC_GIFT_RECEIVED_TM_SLUDGE_BOMB": function() {
 		if (dewford_access() && has("EVENT_DEFEAT_NORMAN")) {
 			return "logical";
 		}
@@ -299,7 +322,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM08": function() {
+	"NPC_GIFT_RECEIVED_TM_BULK_UP": function() {
 		if (dewford_access()) {
 			return "logical";
 		}
@@ -315,7 +338,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM41": function() {
+	"NPC_GIFT_RECEIVED_TM_TORMENT": function() {
 		if (slateport_access()) {
 			return "logical";
 		}
@@ -330,7 +353,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM46": function() {
+	"NPC_GIFT_RECEIVED_TM_THIEF": function() {
 		if (slateport_access() && has("ITEM_DEVON_GOODS")) {
 			return "logical";
 		}
@@ -371,7 +394,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_GOT_TM24_FROM_WATTSON": function() {
+	"NPC_GIFT_GOT_TM_THUNDERBOLT_FROM_WATTSON": function() {
 		if (mauville_access() && has("EVENT_DEFEAT_NORMAN") && has("EVENT_TURN_OFF_GENERATOR")) {
 			return "logical";
 		}
@@ -386,7 +409,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM34": function() {
+	"NPC_GIFT_RECEIVED_TM_SHOCK_WAVE": function() {
 		if (mauville_access()) {
 			return "logical";
 		}
@@ -401,7 +424,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_HM06": function() {
+	"NPC_GIFT_RECEIVED_HM_ROCK_SMASH": function() {
 		if (mauville_access()) {
 			return "logical";
 		}
@@ -412,7 +435,7 @@ const locationLogic = {
 		}
 	},
 	//Verdanturf
-	"NPC_GIFT_RECEIVED_TM45": function() {
+	"NPC_GIFT_RECEIVED_TM_ATTRACT": function() {
 		if (mauville_access()) {
 			return "logical";
 		}
@@ -426,7 +449,7 @@ const locationLogic = {
 			return 'possible';
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM27": function() {
+	"NPC_GIFT_RECEIVED_TM_RETURN": function() {
 		if (fallarbor_access() && has("ITEM_METEORITE") && has("EVENT_RECOVER_METEORITE")) {
 			return "logical";
 		}
@@ -452,7 +475,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM50": function() {
+	"NPC_GIFT_RECEIVED_TM_OVERHEAT": function() {
 		if (lavaridge_access()) {
 			return "logical";
 		}
@@ -463,7 +486,7 @@ const locationLogic = {
 		}
 	},
 	//Fortree
-	"NPC_GIFT_RECEIVED_TM10": function() {
+	"NPC_GIFT_RECEIVED_TM_HIDDEN_POWER": function() {
 		if (rt121_access()) {
 			return "logical";
 		}
@@ -488,7 +511,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM40": function() {
+	"NPC_GIFT_RECEIVED_TM_AERIAL_ACE": function() {
 		if (rt121_access() && has("ITEM_DEVON_SCOPE")) {
 			return "logical";
 		}
@@ -519,18 +542,23 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM44": function() {
+	"NPC_GIFT_RECEIVED_TM_REST": function() {
 		if (lilycove_access()) {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM49": function() {
+	"NPC_GIFT_RECEIVED_TM_SNATCH": function() {
 		if (ferry_from_slateport()) {
 			return "logical";
 		}
 	},
 	"HIDDEN_ITEM_SS_TIDAL_LOWER_DECK_LEFTOVERS": function() {
 		if (ferry_from_slateport() && has("ITEM_ITEMFINDER")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_LILYCOVE_RECEIVED_BERRY": function() {
+		if (lilycove_access()) {
 			return "logical";
 		}
 	},
@@ -555,7 +583,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM04": function() {
+	"NPC_GIFT_RECEIVED_TM_CALM_MIND": function() {
 		if (rt124_access()) {
 			return "logical";
 		}
@@ -575,7 +603,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_HM08": function() {
+	"NPC_GIFT_RECEIVED_HM_DIVE": function() {
 		if (rt124_access() && has("EVENT_DEFEAT_TATE_AND_LIZA")) {
 			return "logical";
 		}
@@ -591,7 +619,17 @@ const locationLogic = {
 		}
 	},*/
 	//Sootopolis
-	"NPC_GIFT_RECEIVED_TM31": function() {
+	"NPC_GIFT_SOOTOPOLIS_RECEIVED_BERRY_1": function() {
+		if (divespot_access()) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_SOOTOPOLIS_RECEIVED_BERRY_2": function() {
+		if (divespot_access()) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_TM_BRICK_BREAK": function() {
 		if (divespot_access()) {
 			return "logical";
 		}
@@ -601,7 +639,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},*/
-	"NPC_GIFT_RECEIVED_HM07": function() {
+	"NPC_GIFT_RECEIVED_HM_WATERFALL": function() {
 		if (divespot_access() && has("EVENT_RELEASE_KYOGRE")) {
 			return "logical";
 		}
@@ -616,18 +654,18 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM03": function() {
+	"NPC_GIFT_RECEIVED_TM_WATER_PULSE": function() {
 		if (divespot_access() && has("EVENT_RELEASE_KYOGRE")) {
 			return "logical";
 		}
 	},
 	//Pacifidlog
-	"NPC_GIFT_RECEIVED_TM27_2": function() {
+	"NPC_GIFT_RECEIVED_TM_RETURN_2": function() {
 		if (rt124_access()) {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM21": function() {
+	"NPC_GIFT_RECEIVED_TM_FRUSTRATION": function() {
 		if (rt124_access()) {
 			return "logical";
 		}
@@ -696,7 +734,7 @@ const locationLogic = {
 	"NPC_GIFT_RECEIVED_DEVON_GOODS_RUSTURF_TUNNEL": function() {
 		return "logical";
 	},
-	"NPC_GIFT_RECEIVED_HM04": function() {
+	"NPC_GIFT_RECEIVED_HM_STRENGTH": function() {
 		if (can_rocksmash()) {
 			return "logical";
 		}
@@ -707,7 +745,7 @@ const locationLogic = {
 		}
 	},
 	//Granite Cave
-	"NPC_GIFT_RECEIVED_HM05": function() {
+	"NPC_GIFT_RECEIVED_HM_FLASH": function() {
 		if (dewford_access()) {
 			return "logical";
 		}
@@ -741,7 +779,7 @@ const locationLogic = {
 			return "possible";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM47": function() {
+	"NPC_GIFT_RECEIVED_TM_STEEL_WING": function() {
 		if (dewford_access() && has("ITEM_LETTER")) {
 			if (can_flash()) {
 				return "logical";
@@ -779,7 +817,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_FIERY_PATH_TM06": function() {
+	"ITEM_FIERY_PATH_TM_TOXIC": function() {
 		if (fallarbor_access() && can_strength()) {
 			return "logical";
 		}
@@ -846,12 +884,12 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_METEOR_FALLS_B1F_2R_TM02": function() {
+	"ITEM_METEOR_FALLS_B1F_2R_TM_DRAGON_CLAW": function() {
 		if (meteorfalls_access() && can_waterfall()) {
 			return "logical";
 		}
 	},
-	"ITEM_METEOR_FALLS_1F_1R_TM23": function() {
+	"ITEM_METEOR_FALLS_1F_1R_TM_IRON_TAIL": function() {
 		if (meteorfalls_access() && can_waterfall()) {
 			return "logical";
 		}
@@ -882,7 +920,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_ABANDONED_SHIP_ROOMS_B1F_TM13": function() {
+	"ITEM_ABANDONED_SHIP_ROOMS_B1F_TM_ICE_BEAM": function() {
 		if (can_surf() && has("ITEM_STORAGE_KEY")) {
 			return "logical";
 		}
@@ -892,43 +930,43 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_1_TM18": function() {
-		if (can_surf() && has("ITEM_ROOM_1_KEY")) {
+	"ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_1_TM_RAIN_DANCE": function() {
+		if (can_surf() && can_dive() && has("ITEM_ROOM_1_KEY")) {
 			return "logical";
 		}
 	},
 	"HIDDEN_ITEM_ABANDONED_SHIP_RM_4_KEY": function() {
-		if (can_surf() && has("ITEM_ROOM_1_KEY")) {
+		if (can_surf() && can_dive() && has("ITEM_ROOM_1_KEY")) {
 			return "logical";
 		}
 	},
-	"ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_4_SCANNER": function() {
-		if (can_surf() && has("ITEM_ROOM_2_KEY")) {
+	"ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_2_SCANNER": function() {
+		if (can_surf() && can_dive() && has("ITEM_ROOM_2_KEY")) {
 			return "logical";
 		}
 	},
 	"ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_3_WATER_STONE": function() {
-		if (can_surf()) {
+		if (can_surf() && can_dive()) {
 			return "logical";
 		}
 	},
 	"HIDDEN_ITEM_ABANDONED_SHIP_RM_1_KEY": function() {
-		if (can_surf()) {
+		if (can_surf() && can_dive()) {
 			return "logical";
 		}
 	},
 	"HIDDEN_ITEM_ABANDONED_SHIP_RM_6_KEY": function() {
-		if (can_surf() && has("ITEM_ROOM_4_KEY")) {
+		if (can_surf() && can_dive() && has("ITEM_ROOM_4_KEY")) {
 			return "logical";
 		}
 	},
 	"HIDDEN_ITEM_ABANDONED_SHIP_RM_2_KEY": function() {
-		if (can_surf() && has("ITEM_ROOM_6_KEY")) {
+		if (can_surf() && can_dive() && has("ITEM_ROOM_6_KEY")) {
 			return "logical";
 		}
 	},
 	"ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL": function() {
-		if (can_surf() && has("ITEM_ROOM_6_KEY")) {
+		if (can_surf() && can_dive() && has("ITEM_ROOM_6_KEY")) {
 			return "logical";
 		}
 	},
@@ -964,7 +1002,7 @@ const locationLogic = {
 		}
 	},
 	//Scoarched Slab
-	"ITEM_SCORCHED_SLAB_TM11": function() {
+	"ITEM_SCORCHED_SLAB_TM_SUNNY_DAY": function() {
 		if (rt121_access() && can_surf() && has("ITEM_DEVON_SCOPE")) {
 			return "logical";
 		}
@@ -995,12 +1033,12 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_MT_PYRE_6F_TM30": function() {
+	"ITEM_MT_PYRE_6F_TM_SHADOW_BALL": function() {
 		if (lilycove_access() && can_surf()) {
 			return "logical";
 		}
 	},
-	"ITEM_MT_PYRE_EXTERIOR_TM48": function() {
+	"ITEM_MT_PYRE_EXTERIOR_TM_SKILL_SWAP": function() {
 		if (lilycove_access() && can_surf()) {
 			return "logical";
 		}
@@ -1082,7 +1120,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_SHOAL_CAVE_ICE_ROOM_TM07": function() {
+	"ITEM_SHOAL_CAVE_ICE_ROOM_TM_HAIL": function() {
 		if (rt124_access() && can_strength()) {
 			return "logical";
 		}
@@ -1093,7 +1131,7 @@ const locationLogic = {
 		}
 	},
 	//Seafloor Cavern
-	"ITEM_SEAFLOOR_CAVERN_ROOM_9_TM26": function() {
+	"ITEM_SEAFLOOR_CAVERN_ROOM_9_TM_EARTHQUAKE": function() {
 		if (can_dive() && can_strength() && can_rocksmash() && rt124_access() && has("EVENT_STEVEN_GIVES_DIVE")) {
 			return "logical";
 		}
@@ -1131,7 +1169,7 @@ const locationLogic = {
 			return "possible";
 		}
 	},
-	"ITEM_VICTORY_ROAD_B1F_TM29": function() {
+	"ITEM_VICTORY_ROAD_B1F_TM_PSYCHIC": function() {
 		if (victory_road_access() && can_strength() && can_rocksmash()) {
 			if (can_flash()) {
 				return "logical";
@@ -1169,6 +1207,102 @@ const locationLogic = {
 				return "logical";
 			}
 			return "possible";
+		}
+	},
+	//Trick House
+	"ITEM_TRICK_HOUSE_PUZZLE_1_ORANGE_MAIL": function() {
+		if (mauville_access() && can_cut()) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_TRICK_HOUSE_REWARD_1": function() {
+		if (mauville_access() && can_cut()) {
+			return "logical";
+		}
+	},
+	"ITEM_TRICK_HOUSE_PUZZLE_2_HARBOR_MAIL": function() {
+		if (mauville_access() && can_cut() 
+			&& has("ITEM_BADGE_3")) {
+			return "logical";
+		}
+	},
+	"ITEM_TRICK_HOUSE_PUZZLE_2_WAVE_MAIL": function() {
+		if (mauville_access() && can_cut() 
+			&& has("ITEM_BADGE_3")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_TRICK_HOUSE_REWARD_2": function() {
+		if (mauville_access() && can_cut() 
+			&& has("ITEM_BADGE_3")) {
+			return "logical";
+		}
+	},
+	"ITEM_TRICK_HOUSE_PUZZLE_3_SHADOW_MAIL": function() {
+		if (can_cut() && can_rocksmash() 
+			&& has("ITEM_BADGE_4")) {
+			return "logical";
+		}
+	},
+	"ITEM_TRICK_HOUSE_PUZZLE_3_WOOD_MAIL": function() {
+		if (can_cut() && can_rocksmash() 
+			&& has("ITEM_BADGE_4")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_TRICK_HOUSE_REWARD_3": function() {
+		if (can_cut() && can_rocksmash() 
+			&& has("ITEM_BADGE_4")) {
+			return "logical";
+		}
+	},
+	"ITEM_TRICK_HOUSE_PUZZLE_4_MECH_MAIL": function() {
+		if (can_cut() && can_rocksmash() && can_strength() 
+			&& has("ITEM_BADGE_5")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_TRICK_HOUSE_REWARD_4": function() {
+		if (can_cut() && can_rocksmash() && can_strength() 
+			&& has("ITEM_BADGE_5")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_TRICK_HOUSE_REWARD_5": function() {
+		if (can_cut() && can_rocksmash() && can_strength() 
+			&& has("ITEM_BADGE_5") && has("ITEM_BADGE_6")) {
+			return "logical";
+		}
+	},
+	"ITEM_TRICK_HOUSE_PUZZLE_6_GLITTER_MAIL": function() {
+		if (can_cut() && can_rocksmash() && can_strength() 
+			&& has("ITEM_BADGE_5") && has("ITEM_BADGE_6") && has("ITEM_BADGE_7")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_TRICK_HOUSE_REWARD_6": function() {
+		if (can_cut() && can_rocksmash() && can_strength() 
+			&& has("ITEM_BADGE_5") && has("ITEM_BADGE_6") && has("ITEM_BADGE_7")) {
+			return "logical";
+		}
+	},
+	"ITEM_TRICK_HOUSE_PUZZLE_7_TROPIC_MAIL": function() {
+		if (can_cut() && can_rocksmash() && can_strength() 
+			&& has("ITEM_BADGE_5") && has("ITEM_BADGE_6") && has("ITEM_BADGE_7") && has("ITEM_BADGE_8")) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_RECEIVED_TRICK_HOUSE_REWARD_7": function() {
+		if (can_cut() && can_rocksmash() && can_strength() 
+			&& has("ITEM_BADGE_5") && has("ITEM_BADGE_6") && has("ITEM_BADGE_7") && has("ITEM_BADGE_8")) {
+			return "logical";
+		}
+	},
+	"ITEM_TRICK_HOUSE_PUZZLE_8_BEAD_MAIL": function() {
+		if (can_cut() && can_rocksmash() && can_strength() 
+			&& has("ITEM_BADGE_5") && has("ITEM_BADGE_6") && has("ITEM_BADGE_7") && has("ITEM_BADGE_8") 
+			&& has("EVENT_DEFEAT_CHAMPION")) {
+			return "logical";
 		}
 	},
 	//Routes
@@ -1216,13 +1350,16 @@ const locationLogic = {
 	"ITEM_ROUTE_104_POKE_BALL": function() {
 		return "logical";
 	},
-	"NPC_GIFT_RECEIVED_TM09": function() {
+	"NPC_GIFT_RECEIVED_TM_BULLET_SEED": function() {
 		return "logical";
 	},
 	"NPC_GIFT_RECEIVED_WHITE_HERB": function() {
 		if (has("ITEM_BADGE_3")) {
 			return "logical";
 		}
+	},
+	"NPC_GIFT_FLOWER_SHOP_RECEIVED_BERRY": function() {
+		return "logical";
 	},
 	"NPC_GIFT_RECEIVED_CHESTO_BERRY_ROUTE_104": function() {
 		return "logical";
@@ -1410,7 +1547,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_ROUTE_111_TM37": function() {
+	"ITEM_ROUTE_111_TM_SANDSTORM": function() {
 		if (fallarbor_access() && has("ITEM_GO_GOGGLES")) {
 			return "logical";
 		}
@@ -1442,6 +1579,11 @@ const locationLogic = {
 	},
 	"NPC_GIFT_RECEIVED_MACHO_BRACE": function() {
 		if (mauville_access()) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_ROUTE_111_RECEIVED_BERRY": function() {
+		if (fallarbor_access()) {
 			return "logical";
 		}
 	},
@@ -1494,12 +1636,17 @@ const locationLogic = {
 			return "logical";
 		}
 	},
+	"NPC_GIFT_RECEIVED_SOOT_SACK": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
 	"HIDDEN_ITEM_ROUTE_113_ETHER": function() {
 		if (fallarbor_access()) {
 			return hidden_logic();
 		}
 	},
-	"HIDDEN_ITEM_ROUTE_113_TM32": function() {
+	"HIDDEN_ITEM_ROUTE_113_TM_DOUBLE_TEAM": function() {
 		if (fallarbor_access()) {
 			return hidden_logic();
 		}
@@ -1530,7 +1677,7 @@ const locationLogic = {
 			return hidden_logic();
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM05": function() {
+	"NPC_GIFT_RECEIVED_TM_ROAR": function() {
 		if (fallarbor_access()) {
 			return "logical";
 		}
@@ -1540,7 +1687,12 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM28": function() {
+	"NPC_GIFT_RECEIVED_TM_DIG": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_ROUTE_114_RECEIVED_BERRY": function() {
 		if (fallarbor_access()) {
 			return "logical";
 		}
@@ -1569,7 +1721,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_ROUTE_115_TM01": function() {
+	"ITEM_ROUTE_115_TM_FOCUS_PUNCH": function() {
 		if (can_surf()) {
 			return "logical";
 		}
@@ -1709,7 +1861,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"NPC_GIFT_RECEIVED_HM02": function() {
+	"NPC_GIFT_RECEIVED_HM_FLY": function() {
 		if (rt119_south_access() || rt121_access()) {
 			return "logical";
 		}
@@ -1782,6 +1934,11 @@ const locationLogic = {
 			return "logical";
 		}
 	},
+	"NPC_GIFT_ROUTE_120_RECEIVED_BERRY": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
 	//121
 	"HIDDEN_ITEM_ROUTE_121_HP_UP": function() {
 		if (rt121_access()) {
@@ -1824,7 +1981,7 @@ const locationLogic = {
 			return "logical";
 		}
 	},
-	"ITEM_SAFARI_ZONE_NORTH_WEST_TM22": function() {
+	"ITEM_SAFARI_ZONE_NORTH_WEST_TM_SOLAR_BEAM": function() {
 		if (lilycove_access() && has("ITEM_POKEBLOCK_CASE") && can_surf() && has("ITEM_MACH_BIKE")) {
 			return "logical";
 		}
@@ -1905,7 +2062,7 @@ const locationLogic = {
 			return hidden_logic();
 		}
 	},
-	"NPC_GIFT_RECEIVED_TM19": function() {
+	"NPC_GIFT_RECEIVED_TM_GIGA_DRAIN": function() {
 		if (lilycove_access() && can_surf()) {
 			return "logical";
 		}
@@ -1918,6 +2075,21 @@ const locationLogic = {
 	"HIDDEN_ITEM_ROUTE_123_RARE_CANDY": function() {
 		if (lilycove_access() && can_surf() && can_cut()) {
 			return hidden_logic();
+		}
+	},
+	"NPC_GIFT_BERRY_MASTER_RECEIVED_BERRY_1": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_BERRY_MASTER_RECEIVED_BERRY_2": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"NPC_GIFT_BERRY_MASTERS_WIFE": function() {
+		if (rt119_south_access()) {
+			return "logical";
 		}
 	},
 	//124
@@ -2124,6 +2296,42 @@ const locationLogic = {
 	"ITEM_ROUTE_134_STAR_PIECE": function() {
 		if (rt124_access()) {
 			return "logical";
+		}
+	},
+	//Islands
+	"HIDDEN_ITEM_ARTISAN_CAVE_B1F_CALCIUM": function() {
+		if (has("ITEM_SS_TICKET") && can_surf() && can_waterfall() && has("ITEM_WAILMER_PAIL")) {
+			return hidden_logic();
+		}
+	},
+	"HIDDEN_ITEM_ARTISAN_CAVE_B1F_IRON": function() {
+		if (has("ITEM_SS_TICKET") && can_surf() && can_waterfall() && has("ITEM_WAILMER_PAIL")) {
+			return hidden_logic();
+		}
+	},
+	"HIDDEN_ITEM_ARTISAN_CAVE_B1F_PROTEIN": function() {
+		if (has("ITEM_SS_TICKET") && can_surf() && can_waterfall() && has("ITEM_WAILMER_PAIL")) {
+			return hidden_logic();
+		}
+	},
+	"HIDDEN_ITEM_ARTISAN_CAVE_B1F_ZINC": function() {
+		if (has("ITEM_SS_TICKET") && can_surf() && can_waterfall() && has("ITEM_WAILMER_PAIL")) {
+			return hidden_logic();
+		}
+	},
+	"ITEM_ARTISAN_CAVE_1F_CARBOS": function() {
+		if (has("ITEM_SS_TICKET") && can_surf() && can_waterfall() && has("ITEM_WAILMER_PAIL")) {
+			return "logical";
+		}
+	},
+	"ITEM_ARTISAN_CAVE_B1F_HP_UP": function() {
+		if (has("ITEM_SS_TICKET") && can_surf() && can_waterfall() && has("ITEM_WAILMER_PAIL")) {
+			return "logical";
+		}
+	},
+	"HIDDEN_ITEM_NAVEL_ROCK_TOP_SACRED_ASH": function() {
+		if (lilycove_access() && has("ITEM_MYSTIC_TICKET")) {
+			return hidden_logic();
 		}
 	}
 }

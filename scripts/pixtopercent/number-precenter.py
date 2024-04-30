@@ -1,7 +1,7 @@
 import re
 
 with open('./output.txt', 'w') as out:
-	with open('../../routes.css') as f:
+	with open('../../locations.css') as f:
 		for line in f:
 			numMatch = re.search('[0-9]+px', line)
 			if (numMatch == None):
