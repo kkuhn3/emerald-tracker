@@ -1,23 +1,39 @@
+// Across
 function conIdToString(id) {
 	if (idToString[id]) {
 		return idToString[id];
 	}
 	return id;
 }
-
 function addClassName(div, className) {
 	if (!div.classList.contains(className)) {
 		div.classList.add(className);
 	}
 }
-
-function setLogicClass(div, className) {
-	div.classList.remove("locationevent", "locationpossible", "locationlogical", "locationeventpossible", "locationeventlogical");
-	div.classList.remove("groupevent", "grouppossible", "grouplogical", "groupeventpossible", "groupeventlogical");
-	div.classList.remove("subevent", "subpossible", "sublogical", "subeventpossible", "subeventlogical");
-	if (className) {
-		div.classList.add(className);
+function addOnClick() {
+	for (let location of document.getElementsByClassName("location")) {
+		location.onclick = function() {locationOnClick(location);};
+		location.onmouseenter = function() {locationOnHover(location);};
+		location.onmouseleave = function() {locationOnUnHover(location);};
 	}
+	for (let item of document.getElementsByClassName("item")) {
+		item.onclick = function() {itemOnClick(item);};
+		item.onmouseenter = function() {itemOnHover(item);};
+		item.onmouseleave = function() {itemOnUnHover();};
+	}
+	for (let setting of document.getElementsByClassName("setting")) {
+		setting.onmouseenter = function() {itemOnHover(setting);};
+		setting.onmouseleave = function() {itemOnUnHover();};
+	}
+	for (let group of document.getElementsByClassName("group")) {
+		group.onclick = function() {groupOnClick(group);};
+		group.onmouseenter = function() {locationOnHover(group);};
+		group.onmouseleave = function() {locationOnUnHover(group);};
+	}
+}
+function isIntLessThan(check, max) {
+	let intValue = parseInt(check, 10);
+	return Number.isInteger(intValue) && intValue <= max && intValue >= 0;
 }
 
 // Locations
@@ -34,11 +50,9 @@ function locationOnHover(location) {
 		idViewer.style.left = parseInt(locationStyle.left, 10) + 20 + "px";
 	}
 }
-
 function locationOnUnHover() {
 	idViewer.style.display = "none";
 }
-
 function locationOnClick(location) {
 	location.classList.toggle("locationchecked");
 	if (location.id.includes("EVENT_")) {
@@ -47,12 +61,52 @@ function locationOnClick(location) {
 	}
 	countchecks();
 }
+function setLogicClass(div, className) {
+	div.classList.remove("locationevent", "locationpossible", "locationlogical", "locationeventpossible", "locationeventlogical");
+	div.classList.remove("groupevent", "grouppossible", "grouplogical", "groupeventpossible", "groupeventlogical");
+	div.classList.remove("subevent", "subpossible", "sublogical", "subeventpossible", "subeventlogical");
+	if (className) {
+		div.classList.add(className);
+	}
+}
+function updateLocations() {
+	if (currentGroup) {
+		groupBreakDown.innerHTML = "";
+	}
+	for (const locationId in locationLogic) {
+		updateLocation(locationId);
+	}
+	if (currentGroup) {
+		groupFocus(document.getElementById(currentGroup));
+	}
+}
+function updateLocation(locationId) {
+	let div = document.getElementById(locationId);
+	const isSub = div.classList.contains("sub");
+	const isEvent = locationId.includes("EVENT_");
+	const availablity = locationLogic[locationId]();
+	let logicClass = "";
+	if (isEvent || availablity) {
+		if (isSub) {
+			logicClass = "sub";
+		}
+		else {
+			logicClass = "location";
+		}
+		if (isEvent) {
+			logicClass = logicClass + "event";
+		}
+		if (availablity) {
+			logicClass = logicClass + availablity;
+		}
+	}
+	setLogicClass(div, logicClass);
+}
 
 // Items
 function itemOnHover(item) {
 	itemHoverDesc.innerHTML = conIdToString(item.id);
 }
-
 function itemOnUnHover() {
 	if (currentGroup) {
 		itemHoverDesc.innerHTML = conIdToString(currentGroup);
@@ -61,7 +115,6 @@ function itemOnUnHover() {
 		itemHoverDesc.innerHTML = "&nbsp";
 	}
 }
-
 function itemOnClick(item) {
 	item.classList.toggle("itemchecked");
 	updateLocations();
@@ -70,6 +123,7 @@ function itemOnClick(item) {
 }
 
 //Settings
+//Settings - Helper
 function settingIterate(setting, max) {
 	let count = parseInt(setting.classList[1].substring(1), 10);
 	setting.classList.remove(setting.classList[1]);
@@ -79,7 +133,6 @@ function settingIterate(setting, max) {
 	}
 	setting.classList.add("_" + count);
 }
-
 function ifTrueAddClass(div, shouldAddClass, className) {
 	if (shouldAddClass) {
 		addClassName(div, className);
@@ -88,27 +141,47 @@ function ifTrueAddClass(div, shouldAddClass, className) {
 		div.classList.remove(className);
 	}
 }
-
-const dontHide = ["HIDDEN_ITEM_ABANDONED_SHIP_RM_4_KEY", "HIDDEN_ITEM_ABANDONED_SHIP_RM_1_KEY", "HIDDEN_ITEM_ABANDONED_SHIP_RM_6_KEY", "HIDDEN_ITEM_ABANDONED_SHIP_RM_2_KEY"];
-function settingHiddenItem() {
-	settingIterate(HIDDEN_ITEMS, 1);
-	hideToMatchHidden();
-	updateGroups();
-	countchecks();
+function setSettingClass(div, className) {
+	div.classList.remove("_0", "_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8");
+	if (className) {
+		div.classList.add(className);
+	}
 }
-function hideToMatchHidden() {
-	let show = parseInt(HIDDEN_ITEMS.classList[1].substring(1), 10);
+
+//Settings - items in logic
+function hideToMatch(div, prefix) {
+	let show = parseInt(div.classList[1].substring(1), 10);
 	for (let location of document.getElementsByClassName("location")) {
-		if (location.id.substring(0,7) === "HIDDEN_" && !dontHide.includes(location.id)) {
+		if (location.id.substring(0,prefix.length) === prefix && !keyItems.includes(location.id)) {
 			ifTrueAddClass(location, !show, "hiddenhidden");
 		}
 	}
 	for (let sub of document.getElementsByClassName("sub")) {
-		if (sub.id.substring(0,7) === "HIDDEN_" && !dontHide.includes(sub.id)) {
+		if (sub.id.substring(0,prefix.length) === prefix && !keyItems.includes(sub.id)) {
 			ifTrueAddClass(sub, !show, "hiddenhidden");
 		}
 	}
 }
+function settingHiddenItem() {
+	settingIterate(HIDDEN_ITEMS, 1);
+	hideToMatch(HIDDEN_ITEMS, "HIDDEN_ITEM_");
+	updateGroups();
+	countchecks();
+}
+function settingOverworldItem() {
+	settingIterate(OVERWORLD_ITEMS, 1);
+	hideToMatch(OVERWORLD_ITEMS, "ITEM_");
+	updateGroups();
+	countchecks();
+}
+function settingNPCItem() {
+	settingIterate(NPC_ITEMS, 1);
+	hideToMatch(NPC_ITEMS, "NPC_GIFT_");
+	updateGroups();
+	countchecks();
+}
+
+//Settings - Norman Requirements
 function settingNormanReq() {
 	settingIterate(NORMAN_REQ, 1);
 	if ("PETALBURG_GYM" === currentGroup) {
@@ -139,6 +212,8 @@ function settingNormanCount() {
 		groupFocus(document.getElementById(currentGroup));
 	}
 }
+
+//Settings - E4 Requirements
 function settingE4Req() {
 	settingIterate(E4_REQ, 1);
 	updateLocation("EVENT_DEFEAT_CHAMPION");
@@ -153,8 +228,8 @@ function settingE4Count() {
 	updateGroups();
 	countchecks();
 }
-const normanLocked = ["NPC_GIFT_RECEIVED_TM_SLUDGE_BOMB", "NPC_GIFT_GOT_BASEMENT_KEY_FROM_WATTSON", "NPC_GIFT_GOT_TM_THUNDERBOLT_FROM_WATTSON"];
-const e4Locked = ["EVENT_DEFEAT_STEVEN", "ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET", "HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY", "HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_ZINC", "ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL", "HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP", "HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE", "NPC_GIFT_RECEIVED_SS_TICKET", "NPC_GIFT_RECEIVED_AURORA_TICKET", "NPC_GIFT_RECEIVED_EON_TICKET", "NPC_GIFT_RECEIVED_MYSTIC_TICKET", "NPC_GIFT_RECEIVED_OLD_SEA_MAP"];
+
+//Settings - Victory Condition
 function settingVictory() {
 	settingIterate(VICTORY_EVENT, 2);
 	hideToMatchE4();
@@ -294,63 +369,7 @@ function subOnClick(sub) {
 	groupFocus(document.getElementById(currentGroup));
 }
 
-function addOnClick() {
-	for (let location of document.getElementsByClassName("location")) {
-		location.onclick = function() {locationOnClick(location);};
-		location.onmouseenter = function() {locationOnHover(location);};
-		location.onmouseleave = function() {locationOnUnHover(location);};
-	}
-	for (let item of document.getElementsByClassName("item")) {
-		item.onclick = function() {itemOnClick(item);};
-		item.onmouseenter = function() {itemOnHover(item);};
-		item.onmouseleave = function() {itemOnUnHover();};
-	}
-	for (let setting of document.getElementsByClassName("setting")) {
-		setting.onmouseenter = function() {itemOnHover(setting);};
-		setting.onmouseleave = function() {itemOnUnHover();};
-	}
-	for (let group of document.getElementsByClassName("group")) {
-		group.onclick = function() {groupOnClick(group);};
-		group.onmouseenter = function() {locationOnHover(group);};
-		group.onmouseleave = function() {locationOnUnHover(group);};
-	}
-}
-
-function updateLocations() {
-	if (currentGroup) {
-		groupBreakDown.innerHTML = "";
-	}
-	for (const locationId in locationLogic) {
-		updateLocation(locationId);
-	}
-	if (currentGroup) {
-		groupFocus(document.getElementById(currentGroup));
-	}
-}
-
-function updateLocation(locationId) {
-	let div = document.getElementById(locationId);
-	const isSub = div.classList.contains("sub");
-	const isEvent = locationId.includes("EVENT_");
-	const availablity = locationLogic[locationId]();
-	let logicClass = "";
-	if (isEvent || availablity) {
-		if (isSub) {
-			logicClass = "sub";
-		}
-		else {
-			logicClass = "location";
-		}
-		if (isEvent) {
-			logicClass = logicClass + "event";
-		}
-		if (availablity) {
-			logicClass = logicClass + availablity;
-		}
-	}
-	setLogicClass(div, logicClass);
-}
-
+//Location Counts
 function countchecks() {
 	let total = 0;
 	let checked = 0;
@@ -386,18 +405,7 @@ function countchecks() {
 	CHECK_TOTAL.innerHTML = total;
 }
 
-function setSettingClass(div, className) {
-	div.classList.remove("_0", "_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8");
-	if (className) {
-		div.classList.add(className);
-	}
-}
-
-function isIntLessThan(check, max) {
-	let intValue = parseInt(check, 10);
-	return Number.isInteger(intValue) && intValue <= max && intValue >= 0;
-}
-
+//Parse URL inputs
 function parseSettings() {
 	const urlSearch = new URLSearchParams(window.location.search);
 	if (isIntLessThan(urlSearch.get("hi"), 1)) {

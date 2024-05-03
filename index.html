@@ -4,12 +4,15 @@
 	<link rel="stylesheet" href="index.css">
 	<link rel="stylesheet" href="locations.css">
 	<link rel="stylesheet" href="items.css">
+	<script src="static/locationType.js" type="text/javascript"></script>
 	<script src="index.js" type="text/javascript"></script>
 	<script src="logic.js" type="text/javascript"></script>
 	<script src="sync.js" type="text/javascript"></script>
 	<body>
 		<div id="leftCol">
 			<div id="settings">
+				<!--<img class="setting _1" id="OVERWORLD_ITEMS" onclick="settingOverworldItem()">-->
+				<!--<img class="setting _1" id="NPC_ITEMS" onclick="settingNPCItem()">-->
 				<img class="setting _1" id="HIDDEN_ITEMS" onclick="settingHiddenItem()">
 				<img class="setting _1" id="NORMAN_REQ" onclick="settingNormanReq()">
 				<img class="setting _4" id="NORMAN_COUNT" onclick="settingNormanCount()">
@@ -651,7 +654,7 @@
 		(async() => {await loadStaticContent();})()
 		parseSettings();
 		hideToMatchE4();
-		hideToMatchHidden();
+		hideToMatch(HIDDEN_ITEMS, "HIDDEN_ITEM_");
 		updateLocations();
 		updateGroups();
 		countchecks();
