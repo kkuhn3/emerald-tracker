@@ -23,8 +23,8 @@ body {
 }
 
 .setting {
-	width: 2.2222vw;
-	height: 2.2222vw;
+	width: 2vw;
+	height: 2vw;
 	background-size: contain;
 	float: left;
 	cursor: pointer;
@@ -33,9 +33,9 @@ body {
 
 .notImageImage {
 	color: silver;
-	font-size: 1.4vw;
+	font-size: 1.2vw;
 	text-align: center;
-	line-height: 2.2222vw;
+	line-height: 2vw;
 	box-shadow: 0 1px 0 0 #d3dfeb inset, 1px 0 0 0 #d3dfeb inset, -1px 0 0 0 #d3dfeb inset, 0 -1px 0 0 #d3dfeb inset;
 }
 

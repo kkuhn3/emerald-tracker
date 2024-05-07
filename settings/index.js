@@ -4,6 +4,7 @@ function launch() {
 		url = url + "&name=" + PNAME.value;
 		url = url + "&port=" + APORT.value;
 	}
+	url = url + "&bt=" + BT.value;
 	url = url + "&hi=" + HI.value;
 	url = url + "&nr=" + NR.value;
 	url = url + "&nc=" + NC.value;

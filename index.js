@@ -162,21 +162,9 @@ function hideToMatch(div, prefix) {
 		}
 	}
 }
-function settingHiddenItem() {
-	settingIterate(HIDDEN_ITEMS, 1);
-	hideToMatch(HIDDEN_ITEMS, "HIDDEN_ITEM_");
-	updateGroups();
-	countchecks();
-}
-function settingOverworldItem() {
-	settingIterate(OVERWORLD_ITEMS, 1);
-	hideToMatch(OVERWORLD_ITEMS, "ITEM_");
-	updateGroups();
-	countchecks();
-}
-function settingNPCItem() {
-	settingIterate(NPC_ITEMS, 1);
-	hideToMatch(NPC_ITEMS, "NPC_GIFT_");
+function settingOnClick(div, prefix) {
+	settingIterate(div, 1);
+	hideToMatch(div, prefix);
 	updateGroups();
 	countchecks();
 }
@@ -408,6 +396,9 @@ function countchecks() {
 //Parse URL inputs
 function parseSettings() {
 	const urlSearch = new URLSearchParams(window.location.search);
+	if (isIntLessThan(urlSearch.get("bt"), 1)) {
+		setSettingClass(BERRY_TREES, "_" + urlSearch.get("bt"));
+	}
 	if (isIntLessThan(urlSearch.get("hi"), 1)) {
 		setSettingClass(HIDDEN_ITEMS, "_" + urlSearch.get("hi"));
 	}

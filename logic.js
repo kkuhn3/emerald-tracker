@@ -125,10 +125,6 @@ function meteorfalls_access() {
 	return fallarbor_access() || can_surf();
 }
 
-function rt115_beach_access() {
-	return can_surf() || fallarbor_access();
-}
-
 function lavaridge_access() {
 	return has("EVENT_RECOVER_METEORITE") && fallarbor_access();
 }
@@ -443,10 +439,7 @@ const locationLogic = {
 	//Fallarbor
 	"HIDDEN_ITEM_FALLARBOR_TOWN_NUGGET": function() {
 		if (fallarbor_access()) {
-			if (has("ITEM_ITEMFINDER")) {
-				return "logical";
-			}
-			return 'possible';
+			return hidden_logic();
 		}
 	},
 	"NPC_GIFT_RECEIVED_TM_RETURN": function() {
@@ -553,8 +546,8 @@ const locationLogic = {
 		}
 	},
 	"HIDDEN_ITEM_SS_TIDAL_LOWER_DECK_LEFTOVERS": function() {
-		if (ferry_from_slateport() && has("ITEM_ITEMFINDER")) {
-			return "logical";
+		if (ferry_from_slateport()) {
+			return hidden_logic();
 		}
 	},
 	"NPC_GIFT_LILYCOVE_RECEIVED_BERRY": function() {
@@ -685,16 +678,10 @@ const locationLogic = {
 		return "logical";
 	},
 	"HIDDEN_ITEM_PETALBURG_WOODS_POTION": function() {
-		if (has("ITEM_ITEMFINDER")) {
-			return "logical";
-		}
-		return "possible";
+		return hidden_logic();
 	},
 	"HIDDEN_ITEM_PETALBURG_WOODS_POKE_BALL": function() {
-		if (has("ITEM_ITEMFINDER")) {
-			return "logical";
-		}
-		return "possible";
+		return hidden_logic();
 	},
 	"NPC_GIFT_RECEIVED_GREAT_BALL_PETALBURG_WOODS": function() {
 		return "logical";
@@ -896,6 +883,16 @@ const locationLogic = {
 	},
 	"EVENT_DEFEAT_STEVEN": function() {
 		if (meteorfalls_access() && can_waterfall() && has("EVENT_DEFEAT_CHAMPION")) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_55": function() {
+		if (meteorfalls_access() && can_rocksmash()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_56": function() {
+		if (meteorfalls_access() && can_rocksmash()) {
 			return "logical";
 		}
 	},
@@ -1311,6 +1308,12 @@ const locationLogic = {
 	"ITEM_ROUTE_102_POTION": function() {
 		return "logical";
 	},
+	"BERRY_TREE_01": function() {
+		return "logical";
+	},
+	"BERRY_TREE_02": function() {
+		return "logical";
+	},
 	//103
 	"ITEM_ROUTE_103_GUARD_SPEC": function() {
 		if (mauville_access() && can_cut()) {
@@ -1322,30 +1325,33 @@ const locationLogic = {
 			return "logical";
 		}
 	},
+	"BERRY_TREE_05": function() {
+		if (mauville_access() && can_cut()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_06": function() {
+		if (mauville_access() && can_cut()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_07": function() {
+		if (mauville_access() && can_cut()) {
+			return "logical";
+		}
+	},
 	//104
 	"HIDDEN_ITEM_ROUTE_104_POTION": function() {
-		if (has("ITEM_ITEMFINDER")) {
-			return "logical";
-		}
-		return "possible"
+		return hidden_logic();
 	},
 	"HIDDEN_ITEM_ROUTE_104_POTION": function() {
-		if (has("ITEM_ITEMFINDER")) {
-			return "logical";
-		}
-		return "possible"
+		return hidden_logic();
 	},
 	"HIDDEN_ITEM_ROUTE_104_HEART_SCALE": function() {
-		if (has("ITEM_ITEMFINDER")) {
-			return "logical";
-		}
-		return "possible"
+		return hidden_logic();
 	},
 	"HIDDEN_ITEM_ROUTE_104_ANTIDOTE": function() {
-		if (has("ITEM_ITEMFINDER")) {
-			return "logical";
-		}
-		return "possible"
+		return hidden_logic();
 	},
 	"ITEM_ROUTE_104_POKE_BALL": function() {
 		return "logical";
@@ -1370,17 +1376,41 @@ const locationLogic = {
 	"ITEM_ROUTE_104_POTION": function() {
 		return "logical";
 	},
+	"BERRY_TREE_03": function() {
+		return "logical";
+	},
+	"BERRY_TREE_04": function() {
+		return "logical";
+	},
+	"BERRY_TREE_08": function() {
+		return "logical";
+	},
+	"BERRY_TREE_09": function() {
+		return "logical";
+	},
+	"BERRY_TREE_10": function() {
+		return "logical";
+	},
+	"BERRY_TREE_11": function() {
+		return "logical";
+	},
+	"BERRY_TREE_12": function() {
+		return "logical";
+	},
+	"BERRY_TREE_13": function() {
+		return "logical";
+	},
+	"BERRY_TREE_75": function() {
+		return "logical";
+	},
+	"BERRY_TREE_76": function() {
+		return "logical";
+	},
 	"HIDDEN_ITEM_ROUTE_104_SUPER_POTION": function() {
-		if (has("ITEM_ITEMFINDER")) {
-			return "logical";
-		}
-		return "possible";
+		return hidden_logic();
 	},
 	"HIDDEN_ITEM_ROUTE_104_POKE_BALL": function() {
-		if (has("ITEM_ITEMFINDER")) {
-			return "logical";
-		}
-		return "possible";
+		return hidden_logic();
 	},
 	/*"EVENT_MEET_FLOWER_SHOP_OWNER": function() {
 		return "logical";
@@ -1536,6 +1566,21 @@ const locationLogic = {
 			return "logical";
 		}
 	},
+	"BERRY_TREE_16": function() {
+		if (mauville_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_17": function() {
+		if (mauville_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_18": function() {
+		if (mauville_access()) {
+			return "logical";
+		}
+	},
 	//111
 	"ITEM_ROUTE_111_ELIXIR": function() {
 		if (mauville_access()) {
@@ -1587,9 +1632,49 @@ const locationLogic = {
 			return "logical";
 		}
 	},
+	"BERRY_TREE_19": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_20": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_80": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_81": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
 	//112
 	"ITEM_ROUTE_112_NUGGET": function() {
 		if (lavaridge_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_21": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_22": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_23": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_24": function() {
+		if (fallarbor_access()) {
 			return "logical";
 		}
 	},
@@ -1697,12 +1782,27 @@ const locationLogic = {
 			return "logical";
 		}
 	},
+	"BERRY_TREE_68": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_77": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_78": function() {
+		if (fallarbor_access()) {
+			return "logical";
+		}
+	},
 	//115
 	"ITEM_ROUTE_115_SUPER_POTION": function() {
 		return "logical";
 	},
 	"HIDDEN_ITEM_ROUTE_115_HEART_SCALE": function() {
-		if (rt115_beach_access()) {
+		if (meteorfalls_access()) {
 			return hidden_logic();
 		}
 	},
@@ -1728,6 +1828,21 @@ const locationLogic = {
 	},
 	"ITEM_ROUTE_115_IRON": function() {
 		if (can_surf() && has("ITEM_MACH_BIKE")) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_69": function() {
+		if (can_surf()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_70": function() {
+		if (can_surf()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_71": function() {
+		if (can_surf()) {
 			return "logical";
 		}
 	},
@@ -1768,6 +1883,26 @@ const locationLogic = {
 			return hidden_logic();
 		}
 	},
+	"BERRY_TREE_25": function() {
+		if (can_cut()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_26": function() {
+		if (can_cut()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_66": function() {
+		if (can_cut()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_67": function() {
+		if (can_cut()) {
+			return "logical";
+		}
+	},
 	//117
 	"ITEM_ROUTE_117_GREAT_BALL": function() {
 		if (mauville_access()) {
@@ -1782,6 +1917,21 @@ const locationLogic = {
 	"HIDDEN_ITEM_ROUTE_117_REPEL": function() {
 		if (mauville_access()) {
 			return hidden_logic();
+		}
+	},
+	"BERRY_TREE_27": function() {
+		if (mauville_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_28": function() {
+		if (mauville_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_29": function() {
+		if (mauville_access()) {
+			return "logical";
 		}
 	},
 	//118
@@ -1801,6 +1951,21 @@ const locationLogic = {
 		}
 	},
 	"NPC_GIFT_RECEIVED_GOOD_ROD": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_31": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_32": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_33": function() {
 		if (rt119_south_access()) {
 			return "logical";
 		}
@@ -1852,29 +2017,27 @@ const locationLogic = {
 		}
 	},
 	"HIDDEN_ITEM_ROUTE_119_MAX_ETHER": function() {
-		if (can_surf() && (rt119_south_access() || rt121_access())) {
+		if (can_surf() && rt119_south_access()) {
 			return hidden_logic();
 		}
 	},
 	"ITEM_ROUTE_119_ELIXIR_2": function() {
-		if (rt119_south_access() || rt121_access()) {
+		if (rt119_south_access()) {
 			return "logical";
 		}
 	},
 	"NPC_GIFT_RECEIVED_HM_FLY": function() {
-		if (rt119_south_access() || rt121_access()) {
+		if (rt119_south_access()) {
 			return "logical";
 		}
 	},
 	"ITEM_ROUTE_119_RARE_CANDY": function() {
-		if (can_waterfall() && has("ITEM_ACRO_BIKE") && 
-		   (rt119_south_access() || rt121_access())) {
+		if (can_waterfall() && has("ITEM_ACRO_BIKE") && rt119_south_access()) {
 			return "logical";
 		}
 	},
 	"ITEM_ROUTE_119_NUGGET": function() {
-		if (can_waterfall() && has("ITEM_ACRO_BIKE") && 
-		   (rt119_south_access() || rt121_access())) {
+		if (can_waterfall() && has("ITEM_ACRO_BIKE") && rt119_south_access()) {
 			return "logical";
 		}
 	},
@@ -1883,6 +2046,41 @@ const locationLogic = {
 			return "logical";
 		}
 	},*/
+	"BERRY_TREE_34": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_35": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_36": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_83": function() {
+		if (can_waterfall() && rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_84": function() {
+		if (can_waterfall() && rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_85": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_86": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
 	//120
 	"HIDDEN_ITEM_ROUTE_120_RARE_CANDY_1": function() {
 		if (rt121_access() && can_cut()) {
@@ -1939,6 +2137,56 @@ const locationLogic = {
 			return "logical";
 		}
 	},
+	"BERRY_TREE_37": function() {
+		if (rt121_access() && can_cut()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_38": function() {
+		if (rt121_access() && can_cut()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_39": function() {
+		if (rt121_access() && can_cut()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_40": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_41": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_42": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_43": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_44": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_45": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_46": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
 	//121
 	"HIDDEN_ITEM_ROUTE_121_HP_UP": function() {
 		if (rt121_access()) {
@@ -1973,6 +2221,46 @@ const locationLogic = {
 	"HIDDEN_ITEM_ROUTE_121_MAX_REVIVE": function() {
 		if (lilycove_access()) {
 			return hidden_logic();
+		}
+	},
+	"BERRY_TREE_47": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_48": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_49": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_50": function() {
+		if (rt121_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_51": function() {
+		if (lilycove_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_52": function() {
+		if (lilycove_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_53": function() {
+		if (lilycove_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_54": function() {
+		if (lilycove_access()) {
+			return "logical";
 		}
 	},
 	//Safari Zone
@@ -2089,6 +2377,96 @@ const locationLogic = {
 	},
 	"NPC_GIFT_BERRY_MASTERS_WIFE": function() {
 		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_14": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_15": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_30": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_57": function() {
+		if (lilycove_access() && can_surf()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_58": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_59": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_60": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_61": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_62": function() {
+		if (lilycove_access() && can_surf()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_63": function() {
+		if (lilycove_access() && can_surf()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_64": function() {
+		if (lilycove_access() && can_surf()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_65": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_72": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_73": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_74": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_79": function() {
+		if (rt119_south_access()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_87": function() {
+		if (lilycove_access() && can_surf()) {
+			return "logical";
+		}
+	},
+	"BERRY_TREE_88": function() {
+		if (lilycove_access() && can_surf()) {
 			return "logical";
 		}
 	},
@@ -2259,6 +2637,11 @@ const locationLogic = {
 	},
 	//129
 	//130
+	"BERRY_TREE_82": function() {
+		if (rt124_access()) {
+			return "logical";
+		}
+	},
 	//131
 	//132
 	"ITEM_ROUTE_132_RARE_CANDY": function() {

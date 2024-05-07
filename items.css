@@ -116,6 +116,12 @@
 
 
 /* Settings, not really items but similar enough */
+#BERRY_TREES._0 {
+	background-image: url(./images/settings/hideberry.png);
+}
+#BERRY_TREES._1 {
+	background-image: url(./images/settings/showberry.png);
+}
 #HIDDEN_ITEMS._0 {
 	background-image: url(./images/settings/hidehidden.png);
 }
