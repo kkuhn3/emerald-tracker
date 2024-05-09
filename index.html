@@ -295,10 +295,10 @@
 			<!--Abandoned Ship-->
 			<div class="group" id="ABANDONED_SHIP">
 				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_1F_HARBOR_MAIL"></div>
-				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_2_1F_REVIVE"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_B1F_TM_ICE_BEAM"></div>
 				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_2_B1F_DIVE_BALL"></div>
 				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_B1F_ESCAPE_ROPE"></div>
-				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_B1F_TM_ICE_BEAM"></div>
+				<div class="sub" id="ITEM_ABANDONED_SHIP_ROOMS_2_1F_REVIVE"></div>
 				<div class="sub" id="ITEM_ABANDONED_SHIP_CAPTAINS_OFFICE_STORAGE_KEY"></div>
 				<div class="sub" id="ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_3_WATER_STONE"></div>
 				<div class="sub" id="HIDDEN_ITEM_ABANDONED_SHIP_RM_1_KEY"></div>
@@ -708,12 +708,12 @@
 			<div class="group" id="BERRY_TREES_123_EAST">
 				<div class="sub" id="NPC_GIFT_RECEIVED_TM_GIGA_DRAIN"></div>
 				<div class="sub" id="BERRY_TREE_87"></div> <!--1-->
+				<div class="sub" id="BERRY_TREE_88"></div> <!--2-->
 				<div class="sub" id="BERRY_TREE_57"></div> <!--3-->
-				<div class="sub" id="BERRY_TREE_63"></div> <!--5-->
 			</div>
 			<div class="group" id="BERRY_TREES_123_NORTH">
-				<div class="sub" id="BERRY_TREE_88"></div> <!--2-->
 				<div class="sub" id="BERRY_TREE_62"></div> <!--4-->
+				<div class="sub" id="BERRY_TREE_63"></div> <!--5-->
 				<div class="sub" id="BERRY_TREE_64"></div> <!--6-->
 			</div>
 			<!--124-->
@@ -787,7 +787,6 @@
 	</body>
 	<script>
 		addOnClick();
-		(async() => {await loadStaticContent();})()
 		parseSettings();
 		hideToMatchE4();
 		hideToMatch(HIDDEN_ITEMS, "HIDDEN_ITEM_");
@@ -795,6 +794,9 @@
 		updateLocations();
 		updateGroups();
 		countchecks();
-		connect();
+		(async() => {
+			await loadStaticContent();
+			connect();
+		})()
 	</script>
 <html>

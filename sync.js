@@ -53,6 +53,7 @@ function connect() {
 	let slot = -1;
 	socket.addEventListener('message', function (event) {
 		const message = JSON.parse(event.data);
+		//console.log(message);
 		let commands = [];
 		for (let command of message) {
 			commands.push(command.cmd);

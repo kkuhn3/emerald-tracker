@@ -69,6 +69,12 @@ function setLogicClass(div, className) {
 		div.classList.add(className);
 	}
 }
+function setHighClass(div, className) {
+	div.classList.remove("possibleHighlight", "logicalHighlight");
+	if (className !== "Highlight") {
+		div.classList.add(className);
+	}
+}
 function updateLocations() {
 	if (currentGroup) {
 		groupBreakDown.innerHTML = "";
@@ -99,6 +105,10 @@ function updateLocation(locationId) {
 		if (availablity) {
 			logicClass = logicClass + availablity;
 		}
+	}
+	if (Object.hasOwn(locationHighlight, locationId)) {
+		const highlight = locationHighlight[locationId]();
+		setHighClass(div, highlight + "Highlight");
 	}
 	setLogicClass(div, logicClass);
 }

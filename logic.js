@@ -159,19 +159,37 @@ function victory_road_access() {
 	return rt124_access() && can_waterfall();
 }
 
-function elite_four() {
-	return e4_open() &&
-		   victory_road_access() &&
-		   can_strength() &&
-		   can_rocksmash() &&
-		   can_surf();
-}
-
 function hidden_logic() {
 	if (has("ITEM_ITEMFINDER")) {
 		return "logical";
 	}
 	return "possible";
+}
+
+const locationHighlight = {
+	"EVENT_DEFEAT_CHAMPION": function() {
+		if (can_rocksmash() && can_strength() && can_surf() && can_dive() && can_waterfall() &&
+			has("ITEM_DEVON_SCOPE") && has("ITEM_MAGMA_EMBLEM")) {
+			if (can_flash()) {
+				return "logical";
+			}
+			return "possible";
+		}
+	},
+	"EVENT_DEFEAT_NORMAN": function() {
+		if (can_rocksmash() || can_surf()) {
+			return "logical";
+		}
+	},
+	"EVENT_DEFEAT_STEVEN": function() {
+		if (can_rocksmash() && can_strength() && can_surf() && can_dive() && can_waterfall() &&
+			has("ITEM_DEVON_SCOPE") && has("ITEM_MAGMA_EMBLEM")) {
+			if (can_flash()) {
+				return "logical";
+			}
+			return "possible";
+		}
+	}
 }
 
 const locationLogic = {
@@ -665,7 +683,14 @@ const locationLogic = {
 	},
 	//Ever Grand City
 	"EVENT_DEFEAT_CHAMPION": function() {
-		if (elite_four()) {
+		if (e4_open() &&
+		   victory_road_access() &&
+		   can_strength() &&
+		   can_rocksmash() &&
+		   can_surf()) {
+			if (can_flash()) {
+				return "possible";
+			}
 			return "logical";
 		}
 	},
@@ -716,10 +741,14 @@ const locationLogic = {
 		return "logical";
 	},
 	"EVENT_RECOVER_DEVON_GOODS": function() {
-		return "logical";
+		if (has("EVENT_DEFEAT_ROXANNE")) {
+			return "logical";
+		}
 	},
 	"NPC_GIFT_RECEIVED_DEVON_GOODS_RUSTURF_TUNNEL": function() {
-		return "logical";
+		if (has("EVENT_DEFEAT_ROXANNE")) {
+			return "logical";
+		}
 	},
 	"NPC_GIFT_RECEIVED_HM_STRENGTH": function() {
 		if (can_rocksmash()) {

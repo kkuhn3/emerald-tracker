@@ -11,7 +11,6 @@
 html {
 	background-color: #d3dfeb;
 }
-
 body {
 	margin: 4px;
 }
@@ -21,7 +20,7 @@ body {
 	float: left;
 	width: 21%;
 }
-
+/*Settings*/
 .setting {
 	width: 2vw;
 	height: 2vw;
@@ -30,7 +29,6 @@ body {
 	cursor: pointer;
 	background-color: #293541;
 }
-
 .notImageImage {
 	color: silver;
 	font-size: 1.2vw;
@@ -38,7 +36,7 @@ body {
 	line-height: 2vw;
 	box-shadow: 0 1px 0 0 #d3dfeb inset, 1px 0 0 0 #d3dfeb inset, -1px 0 0 0 #d3dfeb inset, 0 -1px 0 0 #d3dfeb inset;
 }
-
+/*Items*/
 #items {
 	float: left;
 }
@@ -58,7 +56,7 @@ body {
 .itemchecked {
 	filter: grayscale(0%);
 }
-
+/*Bar Under Items*/
 #itemHoverDesc {
 	color: silver;
 	padding: .5vw;
@@ -69,7 +67,7 @@ body {
 	background-color: #293541;
 	font-family: serif;
 }
-
+/*Group drop down*/
 #groupBreakDown {
 	width: 20vw;
 	float: left;
@@ -81,13 +79,12 @@ body {
 	float: right;
 	width: 79%;
 }
-
 #hoenn {
 	width: 100%;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-
+/*Locations*/
 .location {
 	width: 1vw;
 	height: 1vw;
@@ -120,8 +117,9 @@ body {
 }
 .locationchecked {
 	background-color: var(--ccolor);
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset !important;
 }
-
+/*Groups*/
 .group {
 	width: 1.5vw;
 	height: 1.5vw;
@@ -154,7 +152,7 @@ body {
 .groupchecked {
 	background-color: var(--ccolor);
 }
-
+/*subs*/
 .sub {
 	color: var(--ncolor);
 	font-size: max(12px, .75vw);
@@ -203,6 +201,7 @@ body {
 	            0 .1vw 0 0 var(--ccolor) inset, .1vw 0 0 0 var(--ccolor) inset, -.1vw 0 0 0 var(--ccolor) inset, 0 -.1vw 0 0 var(--ccolor) inset;
 }
 
+/*on-hover*/
 #idViewer {
 	position: absolute;
 	color: silver;
@@ -214,6 +213,7 @@ body {
 	z-index: 2;
 }
 
+/*various aliases for display none*/
 .hidden {
 	display: none;
 }
@@ -222,4 +222,26 @@ body {
 }
 .victoryhidden {
 	display: none;
+}
+
+/*highlight options*/
+.possibleHighlight {
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .2vw 0 0 var(--pecolor) inset, .2vw 0 0 0 var(--pecolor) inset, -.2vw 0 0 0 var(--pecolor) inset, 0 -.2vw 0 0 var(--pecolor) inset,
+	            0 .25vw 0 0 black inset, .25vw 0 0 0 black inset, -.25vw 0 0 0 black inset, 0 -.25vw 0 0 black inset;
+}
+.possibleHighlight:hover {
+	box-shadow: 0 .05vw 0 0 yellow inset, .05vw 0 0 0 yellow inset, -.05vw 0 0 0 yellow inset, 0 -.05vw 0 0 yellow inset, 
+	            0 .2vw 0 0 var(--pecolor) inset, .2vw 0 0 0 var(--pecolor) inset, -.2vw 0 0 0 var(--pecolor) inset, 0 -.2vw 0 0 var(--pecolor) inset,
+	            0 .25vw 0 0 black inset, .25vw 0 0 0 black inset, -.25vw 0 0 0 black inset, 0 -.25vw 0 0 black inset;
+}
+.logicalHighlight {
+	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
+	            0 .2vw 0 0 var(--lecolor) inset, .2vw 0 0 0 var(--lecolor) inset, -.2vw 0 0 0 var(--lecolor) inset, 0 -.2vw 0 0 var(--lecolor) inset,
+	            0 .25vw 0 0 black inset, .25vw 0 0 0 black inset, -.25vw 0 0 0 black inset, 0 -.25vw 0 0 black inset;
+}
+.logicalHighlight:hover {
+	box-shadow: 0 .05vw 0 0 yellow inset, .05vw 0 0 0 yellow inset, -.05vw 0 0 0 yellow inset, 0 -.05vw 0 0 yellow inset, 
+	            0 .2vw 0 0 var(--lecolor) inset, .2vw 0 0 0 var(--lecolor) inset, -.2vw 0 0 0 var(--lecolor) inset, 0 -.2vw 0 0 var(--lecolor) inset,
+	            0 .25vw 0 0 black inset, .25vw 0 0 0 black inset, -.25vw 0 0 0 black inset, 0 -.25vw 0 0 black inset;
 }
