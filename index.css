@@ -198,7 +198,7 @@ body {
 	color: var(--ccolor);
 	text-decoration: line-through;
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 var(--ccolor) inset, .1vw 0 0 0 var(--ccolor) inset, -.1vw 0 0 0 var(--ccolor) inset, 0 -.1vw 0 0 var(--ccolor) inset;
+	            0 .1vw 0 0 var(--ccolor) inset, .1vw 0 0 0 var(--ccolor) inset, -.1vw 0 0 0 var(--ccolor) inset, 0 -.1vw 0 0 var(--ccolor) inset !important;
 }
 
 /*on-hover*/
@@ -227,21 +227,17 @@ body {
 /*highlight options*/
 .possibleHighlight {
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .2vw 0 0 var(--pecolor) inset, .2vw 0 0 0 var(--pecolor) inset, -.2vw 0 0 0 var(--pecolor) inset, 0 -.2vw 0 0 var(--pecolor) inset,
-	            0 .25vw 0 0 black inset, .25vw 0 0 0 black inset, -.25vw 0 0 0 black inset, 0 -.25vw 0 0 black inset;
+	            0 .15vw 0 0 var(--pecolor) inset, .15vw 0 0 0 var(--pecolor) inset, -.15vw 0 0 0 var(--pecolor) inset, 0 -.15vw 0 0 var(--pecolor) inset;
 }
 .possibleHighlight:hover {
 	box-shadow: 0 .05vw 0 0 yellow inset, .05vw 0 0 0 yellow inset, -.05vw 0 0 0 yellow inset, 0 -.05vw 0 0 yellow inset, 
-	            0 .2vw 0 0 var(--pecolor) inset, .2vw 0 0 0 var(--pecolor) inset, -.2vw 0 0 0 var(--pecolor) inset, 0 -.2vw 0 0 var(--pecolor) inset,
-	            0 .25vw 0 0 black inset, .25vw 0 0 0 black inset, -.25vw 0 0 0 black inset, 0 -.25vw 0 0 black inset;
+	            0 .15vw 0 0 var(--pecolor) inset, .15vw 0 0 0 var(--pecolor) inset, -.15vw 0 0 0 var(--pecolor) inset, 0 -.15vw 0 0 var(--pecolor) inset;
 }
 .logicalHighlight {
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .2vw 0 0 var(--lecolor) inset, .2vw 0 0 0 var(--lecolor) inset, -.2vw 0 0 0 var(--lecolor) inset, 0 -.2vw 0 0 var(--lecolor) inset,
-	            0 .25vw 0 0 black inset, .25vw 0 0 0 black inset, -.25vw 0 0 0 black inset, 0 -.25vw 0 0 black inset;
+	            0 .15vw 0 0 var(--lecolor) inset, .15vw 0 0 0 var(--lecolor) inset, -.15vw 0 0 0 var(--lecolor) inset, 0 -.15vw 0 0 var(--lecolor) inset;
 }
 .logicalHighlight:hover {
 	box-shadow: 0 .05vw 0 0 yellow inset, .05vw 0 0 0 yellow inset, -.05vw 0 0 0 yellow inset, 0 -.05vw 0 0 yellow inset, 
-	            0 .2vw 0 0 var(--lecolor) inset, .2vw 0 0 0 var(--lecolor) inset, -.2vw 0 0 0 var(--lecolor) inset, 0 -.2vw 0 0 var(--lecolor) inset,
-	            0 .25vw 0 0 black inset, .25vw 0 0 0 black inset, -.25vw 0 0 0 black inset, 0 -.25vw 0 0 black inset;
+	            0 .15vw 0 0 var(--lecolor) inset, .15vw 0 0 0 var(--lecolor) inset, -.15vw 0 0 0 var(--lecolor) inset, 0 -.15vw 0 0 var(--lecolor) inset;
 }

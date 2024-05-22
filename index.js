@@ -71,7 +71,7 @@ function setLogicClass(div, className) {
 }
 function setHighClass(div, className) {
 	div.classList.remove("possibleHighlight", "logicalHighlight");
-	if (className !== "Highlight") {
+	if (className !== "undefinedHighlight") {
 		div.classList.add(className);
 	}
 }
@@ -231,6 +231,9 @@ function settingE4Count() {
 function settingVictory() {
 	settingIterate(VICTORY_EVENT, 2);
 	hideToMatchE4();
+	updateLocation("EVENT_DEFEAT_NORMAN");
+	updateLocation("EVENT_DEFEAT_CHAMPION");
+	updateLocation("EVENT_DEFEAT_STEVEN");
 	updateGroups();
 	countchecks();
 }

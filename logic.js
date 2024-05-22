@@ -33,6 +33,12 @@ function norman_open() {
 	}
 	return count >= needed;
 }
+function norman_goMode() {
+	if (parseInt(NORMAN_REQ.classList[1].substring(1), 10)) {
+		return true;
+	}
+	return count_badges() >= parseInt(NORMAN_COUNT.classList[1].substring(1), 10);
+}
 
 function e4_open() {
 	let needed = parseInt(E4_COUNT.classList[1].substring(1), 10);
@@ -44,6 +50,12 @@ function e4_open() {
 		count = count_badges();
 	}
 	return count >= needed;
+}
+function e4_goMode() {
+	if (parseInt(E4_REQ.classList[1].substring(1), 10)) {
+		return true;
+	}
+	return count_badges() >= parseInt(E4_COUNT.classList[1].substring(1), 10);
 }
 
 function has(item) {
@@ -167,23 +179,26 @@ function hidden_logic() {
 }
 
 const locationHighlight = {
+	"EVENT_DEFEAT_NORMAN": function() {
+		if (parseInt(VICTORY_EVENT.classList[1].substring(1), 10) === 0 && norman_goMode() && 
+			(can_rocksmash() || can_surf())) {
+			return "logical";
+		}
+	},
 	"EVENT_DEFEAT_CHAMPION": function() {
-		if (can_rocksmash() && can_strength() && can_surf() && can_dive() && can_waterfall() &&
-			has("ITEM_DEVON_SCOPE") && has("ITEM_MAGMA_EMBLEM")) {
+		if (parseInt(VICTORY_EVENT.classList[1].substring(1), 10) === 1 && e4_goMode() && 
+			can_rocksmash() && can_strength() && can_surf() && can_dive() && can_waterfall() &&
+			has("ITEM_MAGMA_EMBLEM") && (has("ITEM_DEVON_SCOPE") || !parseInt(E4_REQ.classList[1].substring(1), 10))) {
 			if (can_flash()) {
 				return "logical";
 			}
 			return "possible";
 		}
 	},
-	"EVENT_DEFEAT_NORMAN": function() {
-		if (can_rocksmash() || can_surf()) {
-			return "logical";
-		}
-	},
 	"EVENT_DEFEAT_STEVEN": function() {
-		if (can_rocksmash() && can_strength() && can_surf() && can_dive() && can_waterfall() &&
-			has("ITEM_DEVON_SCOPE") && has("ITEM_MAGMA_EMBLEM")) {
+		if (parseInt(VICTORY_EVENT.classList[1].substring(1), 10) === 2 && e4_goMode() && 
+			can_rocksmash() && can_strength() && can_surf() && can_dive() && can_waterfall() &&
+			has("ITEM_MAGMA_EMBLEM") && (has("ITEM_DEVON_SCOPE") || !parseInt(E4_REQ.classList[1].substring(1), 10))) {
 			if (can_flash()) {
 				return "logical";
 			}
