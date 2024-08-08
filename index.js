@@ -188,7 +188,7 @@ function settingNormanReq() {
 	updateLocation("EVENT_DEFEAT_NORMAN");
 	updateLocation("BADGE_5");
 	updateLocation("NPC_GIFT_RECEIVED_TM_FACADE");
-	updateLocation("NPC_GIFT_RECEIVED_HM03");
+	updateLocation("NPC_GIFT_RECEIVED_HM_SURF");
 	updateGroupById("PETALBURG_GYM");
 	countchecks();
 	if ("PETALBURG_GYM" === currentGroup) {
@@ -203,7 +203,7 @@ function settingNormanCount() {
 	updateLocation("EVENT_DEFEAT_NORMAN");
 	updateLocation("BADGE_5");
 	updateLocation("NPC_GIFT_RECEIVED_TM_FACADE");
-	updateLocation("NPC_GIFT_RECEIVED_HM03");
+	updateLocation("NPC_GIFT_RECEIVED_HM_SURF");
 	updateGroupById("PETALBURG_GYM");
 	countchecks();
 	if ("PETALBURG_GYM" === currentGroup) {

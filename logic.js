@@ -704,9 +704,9 @@ const locationLogic = {
 		   can_rocksmash() &&
 		   can_surf()) {
 			if (can_flash()) {
-				return "possible";
+				return "logical";
 			}
-			return "logical";
+			return "possible";
 		}
 	},
 	//Dungeons
