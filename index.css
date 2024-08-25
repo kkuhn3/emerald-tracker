@@ -60,7 +60,7 @@ body {
 #itemHoverDesc {
 	color: silver;
 	padding: .5vw;
-	width: 19vw;
+	width: 18.95vw;
 	float: left;
 	overflow-x: hidden;
 	user-select: none;
@@ -69,7 +69,7 @@ body {
 }
 /*Group drop down*/
 #groupBreakDown {
-	width: 20vw;
+	width: 19.95vw;
 	float: left;
 }
 
