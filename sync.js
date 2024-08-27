@@ -41,8 +41,8 @@ function connect() {
 			"tags" : ["Tracker"],
 			"version" : {
 				"major": 0,
-				"minor": 4,
-				"build": 6,
+				"minor": 5,
+				"build": 0,
 				"class": "Version"
 			},
 			"items_handling" : 7,
@@ -53,27 +53,24 @@ function connect() {
 	let slot = -1;
 	socket.addEventListener('message', function (event) {
 		const message = JSON.parse(event.data);
-		//console.log(message);
+		console.log(message);
 		let commands = [];
 		for (let command of message) {
 			commands.push(command.cmd);
 		}
 
 		// seems to be an initial connect response
-		if (commands.includes("Connected") && commands.includes("ReceivedItems")) {
+		if (commands.includes("Connected")) {
 			for (let command of message) {
 				if (command.cmd === "Connected") {
+					// save slot for later
 					slot = command.slot;
-				}
-			}
-			// for each "ReceivedItems"
-			for (let command of message) {
-				if (command.cmd === "ReceivedItems") {
+					// for each "checked_location"
 					if (currentGroup) {
 						groupBreakDown.innerHTML = "";
 					}
-					for (let item of command.items) {
-						gotItem(item.item);
+					for (let location of command.checked_locations) {
+						gotLocation(location);
 					}
 					if (currentGroup) {
 						groupFocus(document.getElementById(currentGroup));
@@ -82,16 +79,12 @@ function connect() {
 					updateGroups();
 					countchecks();
 				}
-			}
-			// go through each check
-			for (let command of message) {
-				if (command.cmd === "Connected") {
-					// for each "checked_location"
+				else if (command.cmd === "ReceivedItems") {
 					if (currentGroup) {
 						groupBreakDown.innerHTML = "";
 					}
-					for (let location of command.checked_locations) {
-						gotLocation(location);
+					for (let item of command.items) {
+						gotItem(item.item);
 					}
 					if (currentGroup) {
 						groupFocus(document.getElementById(currentGroup));
