@@ -143,7 +143,7 @@ function lavaridge_access() {
 
 function rt119_south_access() {
 	return (mauville_access() && can_surf()) ||
-		   (rt121_access());
+		   (lilycove_access() && can_surf());
 }
 
 function fortree_side_access() {
@@ -2066,12 +2066,12 @@ const locationLogic = {
 		}
 	},
 	"ITEM_ROUTE_119_ELIXIR_2": function() {
-		if (rt119_south_access()) {
+		if (rt121_access()) {
 			return "logical";
 		}
 	},
 	"NPC_GIFT_RECEIVED_HM_FLY": function() {
-		if (rt119_south_access()) {
+		if (rt121_access()) {
 			return "logical";
 		}
 	},
@@ -2091,17 +2091,17 @@ const locationLogic = {
 		}
 	},*/
 	"BERRY_TREE_34": function() {
-		if (rt119_south_access()) {
+		if (rt121_access()) {
 			return "logical";
 		}
 	},
 	"BERRY_TREE_35": function() {
-		if (rt119_south_access()) {
+		if (rt121_access()) {
 			return "logical";
 		}
 	},
 	"BERRY_TREE_36": function() {
-		if (rt119_south_access()) {
+		if (rt121_access()) {
 			return "logical";
 		}
 	},
