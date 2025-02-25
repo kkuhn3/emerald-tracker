@@ -10,6 +10,7 @@
 
 html {
 	background-color: #d3dfeb;
+	user-select: none;
 }
 body {
 	margin: 4px;
@@ -28,13 +29,23 @@ body {
 	float: left;
 	cursor: pointer;
 	background-color: #293541;
+	position: relative;
+}
+.setting:hover {
+	transform: scale(1.2);
+	transition: 0.2s all ease-out;
+	z-index: 100;
 }
 .notImageImage {
+	cursor: auto;
 	color: silver;
 	font-size: 1.2vw;
 	text-align: center;
 	line-height: 2vw;
 	box-shadow: 0 1px 0 0 #d3dfeb inset, 1px 0 0 0 #d3dfeb inset, -1px 0 0 0 #d3dfeb inset, 0 -1px 0 0 #d3dfeb inset;
+}
+.setting.notImageImage:hover {
+	transform: scale(1);
 }
 /*Items*/
 #items {
@@ -48,6 +59,12 @@ body {
 	filter: grayscale(100%);
 	cursor: pointer;
 	background-color: #293541;
+	position: relative;
+}
+.item:hover {
+	transform: scale(1.2);
+	transition: 0.2s all ease-out;
+	z-index: 100;
 }
 .largerItem {
 	width: 2.5vw;
