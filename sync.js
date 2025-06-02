@@ -21,7 +21,7 @@ function connect() {
 			"tags" : ["Tracker"],
 			"version" : {
 				"major": 0,
-				"minor": 5,
+				"minor": 6,
 				"build": 1,
 				"class": "Version"
 			},
@@ -55,6 +55,7 @@ function connect() {
 					if (currentGroup) {
 						groupFocus(document.getElementById(currentGroup));
 					}
+					settingsFromSlotData(command.slot_data);
 					updateLocations();
 					updateGroups();
 					countchecks();
@@ -130,4 +131,17 @@ function gotLocation(id) {
 			addClassName(document.getElementById(eventName), "locationchecked");
 		}
 	}
+}
+
+function settingsFromSlotData(slotData) {
+	for (const setting of document.getElementsByClassName("setting")) {
+		if (slotData[setting.id] != null) {
+			setSettingClass(setting, "_" + slotData[setting.id]);
+		}
+	}
+	// Special case for legendary_hunt
+	if (getSettingState(goal) === 3) {
+		setSettingClass(goal, "_0");
+	}
+	settingHide();
 }
