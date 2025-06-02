@@ -20,9 +20,9 @@ const idToString = {
 	"extra_boulders": "Extra Boulders",
 	"extra_bumpy_slope": "Extra Bumpy Slope",
 	"modify_118": "Modify 118",
-	"count_checked": "Locations Checked",
-	"count_logical": "Locations Logically Available",
-	"count_total": "Locations in Total",
+	"CHECK_CHECKED": "Locations Checked",
+	"CHECK_LOGICAL": "Locations Logically Available",
+	"CHECK_TOTAL": "Locations in Total",
 
 	"//Groups":"",
 	"LITTLEROOT_TOWN_BRENDANS_HOUSE": "Player's House",

@@ -134,22 +134,14 @@ function itemOnClick(item) {
 
 //Settings
 //Settings - Helper
-function settingIterate(setting, max) {
-	let count = parseInt(setting.classList[1].substring(1), 10);
-	setting.classList.remove(setting.classList[1]);
+function settingIterate(div, max) {
+	let count = parseInt(div.classList[div.classList.length - 1].substring(1), 10);
+	div.classList.remove(div.classList[div.classList.length - 1]);
 	count = count + 1;
 	if (count > max) {
 		count = 0;
 	}
-	setting.classList.add("_" + count);
-}
-function ifTrueAddClass(div, shouldAddClass, className) {
-	if (shouldAddClass) {
-		addClassName(div, className);
-	}
-	else {
-		div.classList.remove(className);
-	}
+	div.classList.add("_" + count);
 }
 function setSettingClass(div, className) {
 	div.classList.remove("_0", "_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8");
@@ -157,116 +149,52 @@ function setSettingClass(div, className) {
 		div.classList.add(className);
 	}
 }
-
-//Settings - items in logic
-function hideToMatch(div, prefix) {
-	let show = parseInt(div.classList[1].substring(1), 10);
+function shouldHideFrom(soFar, div, list, hideOn) {
+	const count = parseInt(div.classList[div.classList.length - 1].substring(1), 10);
+	if (count === hideOn) {
+		return soFar.concat(list);
+	}
+	return soFar;
+}
+// Settings - Core
+function settingHideNIterate(div, max) {
+	settingIterate(div, max);
+	settingHide();
+}
+function settingHide() {
+	let shouldHide = shouldHideFrom([], goal, e4Locked, 0);
+	shouldHide = shouldHideFrom(shouldHide, goal, normanLocked, 2);
+	shouldHide = shouldHideFrom(shouldHide, badges, hiddenBy["badges"], 0);
+	shouldHide = shouldHideFrom(shouldHide, hms, hiddenBy["hms"], 0);
+	shouldHide = shouldHideFrom(shouldHide, key_items, hiddenBy["key_items"], 0);
+	shouldHide = shouldHideFrom(shouldHide, bikes, hiddenBy["bikes"], 0);
+	shouldHide = shouldHideFrom(shouldHide, event_tickets, hiddenBy["event_tickets"], 0);
+	shouldHide = shouldHideFrom(shouldHide, rods, hiddenBy["rods"], 0);
+	shouldHide = shouldHideFrom(shouldHide, overworld_items, hiddenBy["overworld_items"], 0);
+	shouldHide = shouldHideFrom(shouldHide, hidden_items, hiddenBy["hidden_items"], 0);
+	shouldHide = shouldHideFrom(shouldHide, npc_gifts, hiddenBy["npc_gifts"], 0);
+	shouldHide = shouldHideFrom(shouldHide, berry_trees, hiddenBy["berry_trees"], 0);
 	for (let location of document.getElementsByClassName("location")) {
-		if (location.id.substring(0,prefix.length) === prefix && !keyItems.includes(location.id)) {
-			ifTrueAddClass(location, !show, "hiddenhidden");
+		location.classList.remove("hidden");
+		if (shouldHide.includes(location.id)) {
+			location.classList.add("hidden");
 		}
 	}
 	for (let sub of document.getElementsByClassName("sub")) {
-		if (sub.id.substring(0,prefix.length) === prefix && !keyItems.includes(sub.id)) {
-			ifTrueAddClass(sub, !show, "hiddenhidden");
+		sub.classList.remove("hidden");
+		if (shouldHide.includes(sub.id)) {
+			sub.classList.add("hidden");
 		}
 	}
-}
-function settingOnClick(div, prefix) {
-	settingIterate(div, 1);
-	hideToMatch(div, prefix);
 	updateGroups();
 	countchecks();
 }
-
-//Settings - Norman Requirements
-function settingNormanReq() {
-	settingIterate(NORMAN_REQ, 1);
-	if ("PETALBURG_GYM" === currentGroup) {
-		groupBreakDown.innerHTML = "";
-	}
-	updateLocation("EVENT_DEFEAT_NORMAN");
-	updateLocation("BADGE_5");
-	updateLocation("NPC_GIFT_RECEIVED_TM_FACADE");
-	updateLocation("NPC_GIFT_RECEIVED_HM_SURF");
-	updateGroupById("PETALBURG_GYM");
-	countchecks();
-	if ("PETALBURG_GYM" === currentGroup) {
-		groupFocus(document.getElementById(currentGroup));
-	}
-}
-function settingNormanCount() {
-	settingIterate(NORMAN_COUNT, 7);
-	if ("PETALBURG_GYM" === currentGroup) {
-		groupBreakDown.innerHTML = "";
-	}
-	updateLocation("EVENT_DEFEAT_NORMAN");
-	updateLocation("BADGE_5");
-	updateLocation("NPC_GIFT_RECEIVED_TM_FACADE");
-	updateLocation("NPC_GIFT_RECEIVED_HM_SURF");
-	updateGroupById("PETALBURG_GYM");
-	countchecks();
-	if ("PETALBURG_GYM" === currentGroup) {
-		groupFocus(document.getElementById(currentGroup));
-	}
-}
-
-//Settings - E4 Requirements
-function settingE4Req() {
-	settingIterate(E4_REQ, 1);
-	updateLocation("EVENT_DEFEAT_CHAMPION");
-	hideToMatchE4();
+function settingLogic(div, max) {
+	settingIterate(div, max);
+	groupBreakDown.innerHTML = "";
+	updateLocations();
 	updateGroups();
 	countchecks();
-}
-function settingE4Count() {
-	settingIterate(E4_COUNT, 8);
-	updateLocation("EVENT_DEFEAT_CHAMPION");
-	hideToMatchE4();
-	updateGroups();
-	countchecks();
-}
-
-//Settings - Victory Condition
-function settingVictory() {
-	settingIterate(VICTORY_EVENT, 2);
-	hideToMatchE4();
-	updateLocation("EVENT_DEFEAT_NORMAN");
-	updateLocation("EVENT_DEFEAT_CHAMPION");
-	updateLocation("EVENT_DEFEAT_STEVEN");
-	updateGroups();
-	countchecks();
-}
-function hideToMatchE4() {
-	let state = parseInt(VICTORY_EVENT.classList[1].substring(1), 10);
-	groupBreakDown.innerHTML = ""
-	if (state === 0) {
-		for (let locationId of normanLocked) {
-			addClassName(document.getElementById(locationId), "victoryhidden");
-		}
-		const e4count = parseInt(E4_COUNT.classList[1].substring(1), 10);
-		const e4req = parseInt(E4_REQ.classList[1].substring(1), 10);
-		const showE4 = !(e4req && e4count > 7);
-		for (let locationId of e4Locked) {
-			ifTrueAddClass(document.getElementById(locationId), !showE4, "victoryhidden");
-		}
-	}
-	else if (state === 1) {
-		for (let locationId of normanLocked) {
-			document.getElementById(locationId).classList.remove("victoryhidden");
-		}
-		for (let locationId of e4Locked) {
-			addClassName(document.getElementById(locationId), "victoryhidden");
-		}
-	}
-	else {
-		for (let locationId of normanLocked) {
-			document.getElementById(locationId).classList.remove("victoryhidden");
-		}
-		for (let locationId of e4Locked) {
-			document.getElementById(locationId).classList.remove("victoryhidden");
-		}
-	}
 	if (currentGroup) {
 		groupFocus(document.getElementById(currentGroup));
 	}
@@ -303,7 +231,7 @@ function updateGroup(group) {
 	let event = false;
 	let checked = true;
 	for (let sub of group.getElementsByClassName("sub")) {
-		if (!sub.classList.contains("hiddenhidden") && !sub.classList.contains("victoryhidden")) {
+		if (!sub.classList.contains("hidden")) {
 			hidden = false;
 			if (!sub.classList.contains("subchecked")) {
 				checked = false;
@@ -378,7 +306,7 @@ function countchecks() {
 	for (let child of map.children) {
 		if (child.classList.contains("group")) {
 			for (let sub of child.children) {
-				if (!sub.id.includes("EVENT_") && !sub.classList.contains("hiddenhidden") && !sub.classList.contains("victoryhidden")) {
+				if (!sub.id.includes("EVENT_") && !sub.classList.contains("hidden")) {
 					total = total + 1;
 					if (sub.classList.contains("subchecked")) {
 						checked = checked + 1;
@@ -390,7 +318,7 @@ function countchecks() {
 			}
 		}
 		else if (child.classList.contains("location")) {
-			if (!child.id.includes("EVENT_") && !child.classList.contains("hiddenhidden") && !child.classList.contains("victoryhidden")) {
+			if (!child.id.includes("EVENT_") && !child.classList.contains("hidden")) {
 				total = total + 1;
 				if (child.classList.contains("locationchecked")) {
 					checked = checked + 1;
