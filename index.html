@@ -13,18 +13,30 @@
 	<body>
 		<div id="leftCol">
 			<div id="settings">
-				<!--<img class="setting _1" id="OVERWORLD_ITEMS" onclick="settingOnClick(this, 'ITEM_')">-->
-				<!--<img class="setting _1" id="NPC_ITEMS" onclick="settingOnClick(this, 'NPC_GIFT_')">-->
-				<img class="setting _1" id="BERRY_TREES" onclick="settingOnClick(this, 'BERRY_TREE_')">
-				<img class="setting _0" id="HIDDEN_ITEMS" onclick="settingOnClick(this, 'HIDDEN_ITEM_')">
-				<img class="setting _1" id="NORMAN_REQ" onclick="settingNormanReq()">
-				<img class="setting _4" id="NORMAN_COUNT" onclick="settingNormanCount()">
-				<img class="setting _1" id="E4_REQ" onclick="settingE4Req()">
-				<img class="setting _8" id="E4_COUNT" onclick="settingE4Count()">
-				<img class="setting _1" id="VICTORY_EVENT" onclick="settingVictory()">
-				<div class="setting notImageImage" id="CHECK_CHECKED">0</div>
-				<div class="setting notImageImage" id="CHECK_LOGICAL">50</div>
-				<div class="setting notImageImage" id="CHECK_TOTAL">300</div>
+				<img class="setting _0" id="goal" onclick="settingGoal()">
+				<img class="setting _2" id="badges" onclick="settingHide()">
+				<img class="setting _1" id="hms" onclick="settingHide()">
+				<img class="setting _1" id="key_items" onclick="settingHide()">
+				<img class="setting _1" id="bikes" onclick="settingHide()">
+				<img class="setting _1" id="event_tickets" onclick="settingHide()">
+				<img class="setting _1" id="rods" onclick="settingHide()">
+				<img class="setting _1" id="overworld_items" onclick="settingHide()">
+				<img class="setting _0" id="hidden_items" onclick="settingHide()">
+				<img class="setting _1" id="npc_gifts" onclick="settingHide()">
+				<img class="setting _1" id="berry_trees" onclick="settingHide()">
+
+				<img class="setting small _1" id="require_itemfinder" onclick="settingItemfinder()">
+				<img class="setting small _3" id="require_flash" onclick="settingFlash()">
+				<img class="setting small _1" id="elite_four_requirement" onclick="settingE4Requirement()">
+				<img class="setting small _8" id="elite_four_count" onclick="settingE4Count()">
+				<img class="setting small _1" id="norman_requirement" onclick="normanRequirement()">
+				<img class="setting small _4" id="norman_count" onclick="normanCount()">
+				<img class="setting small _0" id="extra_boulders" onclick="settingLogic()">
+				<img class="setting small _0" id="extra_bumpy_slope" onclick="settingLogic()">
+				<img class="setting small _0" id="modify_118" onclick="settingLogic()">
+				<div class="setting small notImageImage" id="count_checked">0</div>
+				<div class="setting small notImageImage" id="count_logical">50</div>
+				<div class="setting small notImageImage" id="count_total">300</div>
 			</div>
 			<div id="items">
 				<img class="item largerItem" id="ITEM_BADGE_1">

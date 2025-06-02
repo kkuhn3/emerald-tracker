@@ -31,49 +31,114 @@
 		Randomizer Settings
 	</div>
 	<div>
-		<label>Berry Trees</label>
-		<select id="BT">
+		<label>Goal</label>
+		<select id="goal">
+			<option value="" selected>Champion</option>
+			<option value="1">Steven</option>
+			<option value="2">Norman</option>
+			<!-- <option value="3">Legendary Hunt</option> -->
+		</select>
+	</div>
+	<div>
+		<label>Badges</label>
+		<select id="badges">
+			<option value="0">Vanilla</option>
+			<option value="1">Shuffled</option>
+			<option value="" selected>Randomized</option>
+		</select>
+	</div>
+	<div>
+		<label>HMs</label>
+		<select id="hms">
+			<option value="0">Vanilla</option>
+			<option value="" selected>Randomized</option>
+		</select>
+	</div>
+	<div>
+		<label>Key Items</label>
+		<select id="key_items">
+			<option value="0">Vanilla</option>
+			<option value="" selected>Randomized</option>
+		</select>
+	</div>
+	<div>
+		<label>Bikes</label>
+		<select id="bikes">
+			<option value="0">Vanilla</option>
+			<option value="" selected>Randomized</option>
+		</select>
+	</div>
+	<div>
+		<label>Event Tickets</label>
+		<select id="event_tickets">
+			<option value="0">Vanilla</option>
+			<option value="" selected>Randomized</option>
+		</select>
+	</div>
+	<div>
+		<label>Rods</label>
+		<select id="rods">
+			<option value="0">Vanilla</option>
+			<option value="" selected>Randomized</option>
+		</select>
+	</div>
+	<div>
+		<label>Overworld Items</label>
+		<select id="overworld_items">
 			<option value="0">Vanilla</option>
 			<option value="" selected>Randomized</option>
 		</select>
 	</div>
 	<div>
 		<label>Hidden Items</label>
-		<select id="HI">
-			<option value="" selected>Vanilla</option>
-			<option value="1">Randomized</option>
+		<select id="hidden_items">
+			<option value="0">Vanilla</option>
+			<option value="" selected>Randomized</option>
 		</select>
 	</div>
 	<div>
-		<label>Norman Requirement</label>
-		<select id="NR">
-			<option value="0">Badges</option>
-			<option value="" selected>Gyms</option>
+		<label>NPC Gifts</label>
+		<select id="npc_gifts">
+			<option value="0">Vanilla</option>
+			<option value="" selected>Randomized</option>
 		</select>
 	</div>
 	<div>
-		<label>Norman Requires</label>
-		<select id="NC">
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="" selected>4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
+		<label>Berry Trees</label>
+		<select id="berry_trees">
+			<option value="0">Vanilla</option>
+			<option value="" selected>Randomized</option>
+		</select>
+	</div>
+	<!-- dexsanity -->
+	<!-- trainersanity -->
+	<!-- item_pool_type -->
+	<div>
+		<label>Require Itemfinder</label>
+		<select id="require_itemfinder">
+			<option value="0">False</option>
+			<option value="" selected>True</option>
+		</select>
+	</div>
+	<div>
+		<label>Require Flash</label>
+		<select id="require_flash">
+			<option value="0">Neither</option>
+			<option value="1">Only Granite Cave</option>
+			<option value="2">Only Victory Road</option>
+			<option value="" selected>Both</option>
 		</select>
 	</div>
 	<div>
 		<label>Elite Four Requirement</label>
-		<select id="ER">
+		<select id="elite_four_requirement">
 			<option value="0">Badges</option>
 			<option value="" selected>Gyms</option>
 		</select>
 	</div>
 	<div>
-		<label>Elite Four Requires</label>
-		<select id="EC">
+		<label>Elite Four Count</label>
+		<select id="elite_four_count">
 			<option value="0">0</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -86,13 +151,100 @@
 		</select>
 	</div>
 	<div>
-		<label>Goal</label>
-		<select id="G">
-			<option value="0">Norman</option>
-			<option value="" selected>Wallace</option>
-			<option value="2">Steven</option>
+		<label>Norman Requirement</label>
+		<select id="norman_requirement">
+			<option value="0">Badges</option>
+			<option value="" selected>Gyms</option>
 		</select>
 	</div>
+	<div>
+		<label>Norman Count</label>
+		<select id="norman_count">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="" selected>8</option>
+		</select>
+	</div>
+	<!-- legendary_hunt_catch -->
+	<!-- legendary_hunt_count -->
+	<!-- allowed_legendary_hunt_encounters -->
+	<!-- wild_pokemon -->
+	<!-- wild_encounter_blacklist -->
+	<!-- starters -->
+	<!-- starter_blacklist -->
+	<!-- trainer_parties -->
+	<!-- trainer_party_blacklist -->
+	<!-- force_fully_evolved -->
+	<!-- legendary_encounters -->
+	<!-- misc_pokemon -->
+	<!-- types -->
+	<!-- abilities -->
+	<!-- ability_blacklist -->
+	<!-- level_up_moves -->
+	<!-- move_match_type_bias -->
+	<!-- move_normal_type_bias -->
+	<!-- tm_tutor_compatibility -->
+	<!-- hm_compatibility -->
+	<!-- tm_tutor_moves -->
+	<!-- reusable_tms_tutors -->
+	<!-- move_blacklist -->
+	<!-- min_catch_rate -->
+	<!-- guaranteed_catch -->
+	<!-- normalize_encounter_rates -->
+	<!-- exp_modifier -->
+	<!-- blind_trainers -->
+	<!-- purge_spinners -->
+	<!-- match_trainer_levels -->
+	<!-- match_trainer_levels_bonus -->
+	<!-- double_battle_chance -->
+	<!-- better_shops -->
+	<!-- remove_roadblocks -->
+	<div>
+		<label>Extra Boulders</label>
+		<select id="extra_boulders">
+			<option value="" selected>False</option>
+			<option value="1">True</option>
+		</select>
+	</div>
+	<div>
+		<label>Extra Bumpy Slope</label>
+		<select id="extra_bumpy_slope">
+			<option value="" selected>False</option>
+			<option value="1">True</option>
+		</select>
+	</div>
+	<div>
+		<label>Modify 118</label>
+		<select id="modify_118">
+			<option value="" selected>False</option>
+			<option value="1">True</option>
+		</select>
+	</div>
+	<!-- free_fly_location -->
+	<!-- free_fly_blacklist -->
+	<!-- hm_requirements -->
+	<!-- turbo_a -->
+	<!-- receive_item_messages -->
+	<!-- remote_items -->
+	<!-- music -->
+	<!-- fanfares -->
+	<!-- death_link -->
+	<!-- enable_wonder_trading -->
+	<!-- easter_egg -->
+	<!-- start_inventory -->
+	<!-- local_items -->
+	<!-- non_local_items -->
+	<!-- start_hints -->
+	<!-- start_location_hints -->
+	<!-- exclude_locations -->
+	<!-- priority_locations -->
+	<!-- item_links -->
 
 	<div class="header">
 		Ready?

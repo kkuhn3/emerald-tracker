@@ -114,89 +114,180 @@
 	background-image: url(./images/items/mysticticket.png);
 }
 
-
 /* Settings, not really items but similar enough */
-#BERRY_TREES._0 {
-	background-image: url(./images/settings/hideberry.png);
-}
-#BERRY_TREES._1 {
-	background-image: url(./images/settings/showberry.png);
-}
-#HIDDEN_ITEMS._0 {
-	background-image: url(./images/settings/hidehidden.png);
-}
-#HIDDEN_ITEMS._1 {
-	background-image: url(./images/settings/showhidden.png);
-}
-#NORMAN_REQ._0 {
-	background-image: url(./images/settings/norman_badges.png);
-}
-#NORMAN_REQ._1 {
-	background-image: url(./images/settings/norman_gyms.png);
-}
-#NORMAN_COUNT._0 {
-	background-image: url(./images/settings/norman_0.png);
-}
-#NORMAN_COUNT._1 {
-	background-image: url(./images/settings/norman_1.png);
-}
-#NORMAN_COUNT._2 {
-	background-image: url(./images/settings/norman_2.png);
-}
-#NORMAN_COUNT._3 {
-	background-image: url(./images/settings/norman_3.png);
-}
-#NORMAN_COUNT._4 {
-	background-image: url(./images/settings/norman_4.png);
-}
-#NORMAN_COUNT._5 {
-	background-image: url(./images/settings/norman_5.png);
-}
-#NORMAN_COUNT._6 {
-	background-image: url(./images/settings/norman_6.png);
-}
-#NORMAN_COUNT._7 {
-	background-image: url(./images/settings/norman_7.png);
-}
-#E4_REQ._0 {
-	background-image: url(./images/settings/e4_badges.png);
-}
-#E4_REQ._1 {
-	background-image: url(./images/settings/e4_gyms.png);
-}
-#E4_COUNT._0 {
-	background-image: url(./images/settings/e4_0.png);
-}
-#E4_COUNT._1 {
-	background-image: url(./images/settings/e4_1.png);
-}
-#E4_COUNT._2 {
-	background-image: url(./images/settings/e4_2.png);
-}
-#E4_COUNT._3 {
-	background-image: url(./images/settings/e4_3.png);
-}
-#E4_COUNT._4 {
-	background-image: url(./images/settings/e4_4.png);
-}
-#E4_COUNT._5 {
-	background-image: url(./images/settings/e4_5.png);
-}
-#E4_COUNT._6 {
-	background-image: url(./images/settings/e4_6.png);
-}
-#E4_COUNT._7 {
-	background-image: url(./images/settings/e4_7.png);
-}
-#E4_COUNT._8 {
-	background-image: url(./images/settings/e4_8.png);
-}
-#VICTORY_EVENT._0 {
+/* Row 1 */
+#goal._0 {
 	background-image: url(./images/settings/victory_0.png);
 }
-#VICTORY_EVENT._1 {
+#goal._1 {
 	background-image: url(./images/settings/victory_1.png);
 }
-#VICTORY_EVENT._2 {
+#goal._2 {
 	background-image: url(./images/settings/victory_2.png);
 }
+#badges._0 {
+	background-image: url(./images/settings/badges_0.png);
+}
+#badges._1 {
+	background-image: url(./images/settings/badges_1.png);
+}
+#badges._2 {
+	background-image: url(./images/settings/badges_2.png);
+}
+#hms._0 {
+	background-image: url(./images/settings/hms_0.png);
+}
+#hms._1 {
+	background-image: url(./images/settings/hms_1.png);
+}
+#key_items._0 {
+	background-image: url(./images/settings/key_items_0.png);
+}
+#key_items._1 {
+	background-image: url(./images/settings/key_items_1.png);
+}
+#bikes._0 {
+	background-image: url(./images/settings/bikes_0.png);
+}
+#bikes._1 {
+	background-image: url(./images/settings/bikes_1.png);
+}
+#event_tickets._0 {
+	background-image: url(./images/settings/event_tickets_0.png);
+}
+#event_tickets._1 {
+	background-image: url(./images/settings/event_tickets_1.png);
+}
+#rods._0 {
+	background-image: url(./images/settings/rods_0.png);
+}
+#rods._1 {
+	background-image: url(./images/settings/rods_1.png);
+}
+#overworld_items._0 {
+	background-image: url(./images/settings/overworld_items_0.png);
+}
+#overworld_items._1 {
+	background-image: url(./images/settings/overworld_items_1.png);
+}
+#hidden_items._0 {
+	background-image: url(./images/settings/hidehidden.png);
+}
+#hidden_items._1 {
+	background-image: url(./images/settings/showhidden.png);
+}
+#npc_gifts._0 {
+	background-image: url(./images/settings/npc_gifts_0.png);
+}
+#npc_gifts._1 {
+	background-image: url(./images/settings/npc_gifts_1.png);
+}
+#berry_trees._0 {
+	background-image: url(./images/settings/hideberry.png);
+}
+#berry_trees._1 {
+	background-image: url(./images/settings/showberry.png);
+}
+
+
+/* Row 2 */
+#require_itemfinder._0 {
+	background-image: url(./images/settings/hidehidden.png);
+}
+#require_itemfinder._1 {
+	background-image: url(./images/settings/showhidden.png);
+}
+#require_flash._0 {
+	background-image: url(./images/settings/require_flash_0.png);
+}
+#require_flash._1 {
+	background-image: url(./images/settings/require_flash_1.png);
+}
+#require_flash._2 {
+	background-image: url(./images/settings/require_flash_2.png);
+}
+#require_flash._3 {
+	background-image: url(./images/settings/require_flash_3.png);
+}
+#elite_four_requirement._0 {
+	background-image: url(./images/settings/e4_badges.png);
+}
+#elite_four_requirement._1 {
+	background-image: url(./images/settings/e4_gyms.png);
+}
+#elite_four_count._0 {
+	background-image: url(./images/settings/e4_0.png);
+}
+#elite_four_count._1 {
+	background-image: url(./images/settings/e4_1.png);
+}
+#elite_four_count._2 {
+	background-image: url(./images/settings/e4_2.png);
+}
+#elite_four_count._3 {
+	background-image: url(./images/settings/e4_3.png);
+}
+#elite_four_count._4 {
+	background-image: url(./images/settings/e4_4.png);
+}
+#elite_four_count._5 {
+	background-image: url(./images/settings/e4_5.png);
+}
+#elite_four_count._6 {
+	background-image: url(./images/settings/e4_6.png);
+}
+#elite_four_count._7 {
+	background-image: url(./images/settings/e4_7.png);
+}
+#elite_four_count._8 {
+	background-image: url(./images/settings/e4_8.png);
+}
+#norman_requirement._0 {
+	background-image: url(./images/settings/norman_badges.png);
+}
+#norman_requirement._1 {
+	background-image: url(./images/settings/norman_gyms.png);
+}
+#norman_count._0 {
+	background-image: url(./images/settings/norman_0.png);
+}
+#norman_count._1 {
+	background-image: url(./images/settings/norman_1.png);
+}
+#norman_count._2 {
+	background-image: url(./images/settings/norman_2.png);
+}
+#norman_count._3 {
+	background-image: url(./images/settings/norman_3.png);
+}
+#norman_count._4 {
+	background-image: url(./images/settings/norman_4.png);
+}
+#norman_count._5 {
+	background-image: url(./images/settings/norman_5.png);
+}
+#norman_count._6 {
+	background-image: url(./images/settings/norman_6.png);
+}
+#norman_count._7 {
+	background-image: url(./images/settings/norman_7.png);
+}
+#extra_boulders._0 {
+	background-image: url(./images/settings/extra_boulders_0.png);
+}
+#extra_boulders._1 {
+	background-image: url(./images/settings/extra_boulders_1.png);
+}
+#extra_bumpy_slope._0 {
+	background-image: url(./images/settings/extra_bumpy_slope_0.png);
+}
+#extra_bumpy_slope._1 {
+	background-image: url(./images/settings/extra_bumpy_slope_1.png);
+}
+#modify_118._0 {
+	background-image: url(./images/settings/modify_118_0.png);
+}
+#modify_118._1 {
+	background-image: url(./images/settings/modify_118_1.png);
+}
+

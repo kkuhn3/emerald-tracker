@@ -23,13 +23,17 @@ body {
 }
 /*Settings*/
 .setting {
-	width: 2vw;
-	height: 2vw;
+	width: calc(20vw/11);
+	height: calc(20vw/11);
 	background-size: contain;
 	float: left;
 	cursor: pointer;
 	background-color: #293541;
 	position: relative;
+}
+.setting.small {
+	width: calc(20vw/12);
+	height: calc(20vw/12);
 }
 .setting:hover {
 	transform: scale(1.2);
@@ -39,9 +43,9 @@ body {
 .notImageImage {
 	cursor: auto;
 	color: silver;
-	font-size: 1.2vw;
+	font-size: 1vw;
 	text-align: center;
-	line-height: 2vw;
+	line-height: calc(20vw/12);
 	box-shadow: 0 1px 0 0 #d3dfeb inset, 1px 0 0 0 #d3dfeb inset, -1px 0 0 0 #d3dfeb inset, 0 -1px 0 0 #d3dfeb inset;
 }
 .setting.notImageImage:hover {
