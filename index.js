@@ -31,10 +31,6 @@ function addOnClick() {
 		group.onmouseleave = function() {locationOnUnHover(group);};
 	}
 }
-function isIntLessThan(check, max) {
-	let intValue = parseInt(check, 10);
-	return Number.isInteger(intValue) && intValue <= max && intValue >= 0;
-}
 
 // Locations
 function locationOnHover(location) {
@@ -134,14 +130,16 @@ function itemOnClick(item) {
 
 //Settings
 //Settings - Helper
+function getSettingState(div) {
+	return parseInt(div.classList[div.classList.length - 1].substring(1), 10);
+}
 function settingIterate(div, max) {
-	let count = parseInt(div.classList[div.classList.length - 1].substring(1), 10);
-	div.classList.remove(div.classList[div.classList.length - 1]);
+	let count = getSettingState(div);
 	count = count + 1;
 	if (count > max) {
 		count = 0;
 	}
-	div.classList.add("_" + count);
+	setSettingClass(div, "_" + count);
 }
 function setSettingClass(div, className) {
 	div.classList.remove("_0", "_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8");
@@ -150,7 +148,7 @@ function setSettingClass(div, className) {
 	}
 }
 function shouldHideFrom(soFar, div, list, hideOn) {
-	const count = parseInt(div.classList[div.classList.length - 1].substring(1), 10);
+	const count = getSettingState(div);
 	if (count === hideOn) {
 		return soFar.concat(list);
 	}
@@ -337,26 +335,11 @@ function countchecks() {
 //Parse URL inputs
 function parseSettings() {
 	const urlSearch = new URLSearchParams(window.location.search);
-	if (isIntLessThan(urlSearch.get("bt"), 1)) {
-		setSettingClass(BERRY_TREES, "_" + urlSearch.get("bt"));
-	}
-	if (isIntLessThan(urlSearch.get("hi"), 1)) {
-		setSettingClass(HIDDEN_ITEMS, "_" + urlSearch.get("hi"));
-	}
-	if (isIntLessThan(urlSearch.get("nr"), 1)) {
-		setSettingClass(NORMAN_REQ, "_" + urlSearch.get("nr"));
-	}
-	if (isIntLessThan(urlSearch.get("nc"), 7)) {
-		setSettingClass(NORMAN_COUNT, "_" + urlSearch.get("nc"));
-	}
-	if (isIntLessThan(urlSearch.get("er"), 1)) {
-		setSettingClass(E4_REQ, "_" + urlSearch.get("er"));
-	}
-	if (isIntLessThan(urlSearch.get("ec"), 8)) {
-		setSettingClass(E4_COUNT, "_" + urlSearch.get("ec"));
-	}
-	if (isIntLessThan(urlSearch.get("g"), 2)) {
-		setSettingClass(VICTORY_EVENT, "_" + urlSearch.get("g"));
+	for (const [key, value] of urlSearch) {
+		let div = document.getElementById(key);
+		if (div) {
+			setSettingClass(div, "_" + value);
+		}
 	}
 
 	if (urlSearch.get("name") && urlSearch.get("port")) {
