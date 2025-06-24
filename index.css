@@ -184,42 +184,42 @@ body {
 	user-select: none;
 	background-color: #293541;
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 var(--ncolor) inset, .1vw 0 0 0 var(--ncolor) inset, -.1vw 0 0 0 var(--ncolor) inset, 0 -.1vw 0 0 var(--ncolor) inset;
+				0 .1vw 0 0 var(--ncolor) inset, .1vw 0 0 0 var(--ncolor) inset, -.1vw 0 0 0 var(--ncolor) inset, 0 -.1vw 0 0 var(--ncolor) inset;
 }
 .sub:hover {
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 yellow inset, .1vw 0 0 0 yellow inset, -.1vw 0 0 0 yellow inset, 0 -.1vw 0 0 yellow inset;
+				0 .1vw 0 0 yellow inset, .1vw 0 0 0 yellow inset, -.1vw 0 0 0 yellow inset, 0 -.1vw 0 0 yellow inset;
 }
 .subevent {
 	color: var(--necolor);
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 var(--necolor) inset, .1vw 0 0 0 var(--necolor) inset, -.1vw 0 0 0 var(--necolor) inset, 0 -.1vw 0 0 var(--necolor) inset;
+				0 .1vw 0 0 var(--necolor) inset, .1vw 0 0 0 var(--necolor) inset, -.1vw 0 0 0 var(--necolor) inset, 0 -.1vw 0 0 var(--necolor) inset;
 }
 .subpossible {
 	color: var(--pcolor);
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 var(--pcolor) inset, .1vw 0 0 0 var(--pcolor) inset, -.1vw 0 0 0 var(--pcolor) inset, 0 -.1vw 0 0 var(--pcolor) inset;
+				0 .1vw 0 0 var(--pcolor) inset, .1vw 0 0 0 var(--pcolor) inset, -.1vw 0 0 0 var(--pcolor) inset, 0 -.1vw 0 0 var(--pcolor) inset;
 }
 .sublogical {
 	color: var(--lcolor);
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 var(--lcolor) inset, .1vw 0 0 0 var(--lcolor) inset, -.1vw 0 0 0 var(--lcolor) inset, 0 -.1vw 0 0 var(--lcolor) inset;
+				0 .1vw 0 0 var(--lcolor) inset, .1vw 0 0 0 var(--lcolor) inset, -.1vw 0 0 0 var(--lcolor) inset, 0 -.1vw 0 0 var(--lcolor) inset;
 }
 .subeventpossible {
 	color: var(--pecolor);
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 var(--pecolor) inset, .1vw 0 0 0 var(--pecolor) inset, -.1vw 0 0 0 var(--pecolor) inset, 0 -.1vw 0 0 var(--pecolor) inset;
+				0 .1vw 0 0 var(--pecolor) inset, .1vw 0 0 0 var(--pecolor) inset, -.1vw 0 0 0 var(--pecolor) inset, 0 -.1vw 0 0 var(--pecolor) inset;
 }
 .subeventlogical {
 	color: var(--lecolor);
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 var(--lecolor) inset, .1vw 0 0 0 var(--lecolor) inset, -.1vw 0 0 0 var(--lecolor) inset, 0 -.1vw 0 0 var(--lecolor) inset;
+				0 .1vw 0 0 var(--lecolor) inset, .1vw 0 0 0 var(--lecolor) inset, -.1vw 0 0 0 var(--lecolor) inset, 0 -.1vw 0 0 var(--lecolor) inset;
 }
 .subchecked {
 	color: var(--ccolor);
 	text-decoration: line-through;
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .1vw 0 0 var(--ccolor) inset, .1vw 0 0 0 var(--ccolor) inset, -.1vw 0 0 0 var(--ccolor) inset, 0 -.1vw 0 0 var(--ccolor) inset !important;
+				0 .1vw 0 0 var(--ccolor) inset, .1vw 0 0 0 var(--ccolor) inset, -.1vw 0 0 0 var(--ccolor) inset, 0 -.1vw 0 0 var(--ccolor) inset !important;
 }
 
 /*on-hover*/
@@ -242,17 +242,17 @@ body {
 /*highlight options*/
 .possibleHighlight {
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .15vw 0 0 var(--pecolor) inset, .15vw 0 0 0 var(--pecolor) inset, -.15vw 0 0 0 var(--pecolor) inset, 0 -.15vw 0 0 var(--pecolor) inset;
+				0 .15vw 0 0 var(--pecolor) inset, .15vw 0 0 0 var(--pecolor) inset, -.15vw 0 0 0 var(--pecolor) inset, 0 -.15vw 0 0 var(--pecolor) inset;
 }
 .possibleHighlight:hover {
 	box-shadow: 0 .05vw 0 0 yellow inset, .05vw 0 0 0 yellow inset, -.05vw 0 0 0 yellow inset, 0 -.05vw 0 0 yellow inset, 
-	            0 .15vw 0 0 var(--pecolor) inset, .15vw 0 0 0 var(--pecolor) inset, -.15vw 0 0 0 var(--pecolor) inset, 0 -.15vw 0 0 var(--pecolor) inset;
+				0 .15vw 0 0 var(--pecolor) inset, .15vw 0 0 0 var(--pecolor) inset, -.15vw 0 0 0 var(--pecolor) inset, 0 -.15vw 0 0 var(--pecolor) inset;
 }
 .logicalHighlight {
 	box-shadow: 0 .05vw 0 0 black inset, .05vw 0 0 0 black inset, -.05vw 0 0 0 black inset, 0 -.05vw 0 0 black inset, 
-	            0 .15vw 0 0 var(--lecolor) inset, .15vw 0 0 0 var(--lecolor) inset, -.15vw 0 0 0 var(--lecolor) inset, 0 -.15vw 0 0 var(--lecolor) inset;
+				0 .15vw 0 0 var(--lecolor) inset, .15vw 0 0 0 var(--lecolor) inset, -.15vw 0 0 0 var(--lecolor) inset, 0 -.15vw 0 0 var(--lecolor) inset;
 }
 .logicalHighlight:hover {
 	box-shadow: 0 .05vw 0 0 yellow inset, .05vw 0 0 0 yellow inset, -.05vw 0 0 0 yellow inset, 0 -.05vw 0 0 yellow inset, 
-	            0 .15vw 0 0 var(--lecolor) inset, .15vw 0 0 0 var(--lecolor) inset, -.15vw 0 0 0 var(--lecolor) inset, 0 -.15vw 0 0 var(--lecolor) inset;
+				0 .15vw 0 0 var(--lecolor) inset, .15vw 0 0 0 var(--lecolor) inset, -.15vw 0 0 0 var(--lecolor) inset, 0 -.15vw 0 0 var(--lecolor) inset;
 }

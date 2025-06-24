@@ -684,7 +684,7 @@ const locationLogic = {
 	//Ever Grand City
 	"EVENT_DEFEAT_CHAMPION": function() {
 		if (e4_open() && can_evergrandcity() &&
-		    can_strength() && can_rocksmash()) {
+			can_strength() && can_rocksmash()) {
 			return can_flash_victory();
 		}
 	},
