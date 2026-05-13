@@ -2278,7 +2278,9 @@ const locationLogic = {
 		return can_mossdeep();
 	},
 	"ITEM_ROUTE_127_CARBOS": function() {
-		return can_mossdeep();
+		if (can_dive()) {
+			return can_mossdeep();
+		}
 	},
 	"HIDDEN_ITEM_UNDERWATER_127_HEART_SCALE": function() {
 		if (can_sootopolis()) {
